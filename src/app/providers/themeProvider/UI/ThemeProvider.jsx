@@ -3,7 +3,7 @@ import { LS_THEME_KEY, ThemeContext } from "../lib/themeContext"
 
 const defaultTheme = localStorage.getItem(LS_THEME_KEY)
 
-export const ThemeProvider = (props) => {
+export const ThemeProvider = ({children}) => {
     const [appTheme, setAppTheme] = useState(defaultTheme)
 
     const defaultProps = useMemo(() => ({
@@ -13,7 +13,7 @@ export const ThemeProvider = (props) => {
 
     return (
         <ThemeContext.Provider value={defaultProps}>
-            {props.children}
+            {children}
         </ThemeContext.Provider>
     )
 }
