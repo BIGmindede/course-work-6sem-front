@@ -1,10 +1,5 @@
 import { useContext } from "react";
-import { LS_THEME_KEY, ThemeContext } from "./themeContext";
-
-export const Themes = {
-    LIGHT: 'light',
-    DARK: 'dark'
-}
+import { LS_THEME_KEY, ThemeContext, Themes } from "./themeContext";
 
 export function useTheme() {
     const { appTheme, setAppTheme } = useContext(ThemeContext)
