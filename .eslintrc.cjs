@@ -18,6 +18,8 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "react/prop-types": [0],
-    "no-undef": [0]
+    "no-undef": [0],
+    "react-refresh/only-export-components": [0],
+    "react/display-name": [0]
   },
 }

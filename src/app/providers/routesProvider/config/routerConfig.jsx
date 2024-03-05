@@ -1,3 +1,5 @@
+import { MainPage } from "pages/MainPage"
+
 export const RoutesPaths = {
     main: '/',
     search: "/search",
@@ -13,7 +15,7 @@ export const RoutesPaths = {
 export const routerConfig = [
     {
         path: RoutesPaths.main,
-        element: <div/>
+        element: <MainPage/>
     },
     {
         path: RoutesPaths.search,
