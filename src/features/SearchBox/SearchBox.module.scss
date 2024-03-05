@@ -1,0 +1,21 @@
+.searchbox {
+    width: 670px;
+    background-color: var(--subaccent-el);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+
+    input {
+        height: 50px;
+        border-radius: 20px;
+        padding: 0 10px;
+        transition: all 0.25s ease-in-out;
+        flex-grow: 1;
+        border: 5px solid var(--subaccent-el);
+        background-color: var(--main-bg);
+    }
+    input:focus {
+        border: 5px solid var(--main-bg);
+    }
+}
