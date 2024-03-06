@@ -1,0 +1,14 @@
+.header {
+    background-color: var(--accent-el);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    z-index: 2;
+}

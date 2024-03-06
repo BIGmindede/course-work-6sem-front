@@ -29,6 +29,6 @@ export const {
     authError
 } = authSlice.actions
 
-export const { selectUserData } = (state) => state.auth.userData
+export const selectUserData = (state) => state.auth.userData
 
 export default authSlice.reducer

@@ -3,7 +3,7 @@
 
 export default () => {
     return (
-        <div>
+        <div style={{height: "3000px"}}>
             MainPage
         </div>
     )

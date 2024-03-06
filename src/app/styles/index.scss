@@ -17,3 +17,11 @@ select {
     margin: 0;
     font: inherit;
 }
+
+h1,h2,h3,h4,h5,h6, button {
+    font-family: var(--accent-font-family);
+}
+
+.app {
+    font-family: var(--basic-font-family);
+}

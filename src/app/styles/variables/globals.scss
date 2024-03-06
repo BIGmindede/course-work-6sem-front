@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Murecho Light";
+    src: url('./fonts/Murecho-Light.ttf');
+}
+
+@font-face {
+    font-family: "Days Sans";
+    src: url('./fonts/DaysSansBlack.otf');
+}
+
+:root {
+    --accent-font-family: "Days Sans";
+    --basic-font-family: "Murecho Light"
+}

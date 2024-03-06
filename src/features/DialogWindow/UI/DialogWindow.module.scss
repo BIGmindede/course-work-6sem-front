@@ -1,0 +1,21 @@
+.dialogwindow {
+    position: absolute;
+    background-color: var(--main-bg);
+    display: flex;
+    border-radius:0 0 15px 15px;
+    top: 65px;
+    transition: all 0.25s ease-in-out;
+    animation: appear 0.25s ease-in-out;
+    width: 100%;
+}
+
+@keyframes appear {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}

@@ -14,6 +14,6 @@ export default class AuthService {
     }
 
     static async refresh() {
-        return api.post('/refresh')
+        return api.get('/refresh')
     }
 }

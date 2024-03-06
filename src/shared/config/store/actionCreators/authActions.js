@@ -7,6 +7,7 @@ import { jwtDecode } from "jwt-decode"
 export const login = (email, password) => async (dispatch) => {
     dispatch(authLoading())
     try {
+        console.log(email, password)
         const { data } = await AuthService.login(email, password)
         const cookies = new Cookies()
         cookies.set('token', data.accessToken, jwtDecode(data.accessToken).exp)
@@ -36,7 +37,7 @@ export const checkAuthority = () => async (dispatch) => {
         cookies.set('token', data.accessToken, jwtDecode(data.accessToken).exp)
         dispatch(authSuccess(data))
     } catch (error) {
-        dispatch(authSuccess({}))
+        dispatch(authSuccess(null))
     }
 }
 
@@ -46,7 +47,7 @@ export const logout = () => async (dispatch) => {
         await AuthService.logout()
         const cookies = new Cookies()
         cookies.remove('token')
-        dispatch(authSuccess({}))
+        dispatch(authSuccess(null))
     } catch (error) {
         dispatch(authError(error.message))
     }
