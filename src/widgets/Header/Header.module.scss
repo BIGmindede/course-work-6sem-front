@@ -4,11 +4,19 @@
     top: 0;
     width: 100%;
     min-height: 80px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 180px minmax(600px, 700px) 380px;
     gap:10px;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     z-index: 2;
+}
+
+@media (max-width: 1240px) {
+    .header {
+        grid-template-columns: 180px 380px;
+        grid-template-rows: repeat(2, 80px);
+    }
 }
