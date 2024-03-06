@@ -4,6 +4,7 @@ import cls from './Button.module.scss'
 export const ButtonThemes = {
     BASIC: 'basic',
     CLEAR: 'clear',
+    ROUND: 'round',
     AGREEMENT: 'agreement',
     WARNING: 'warning',
 }
