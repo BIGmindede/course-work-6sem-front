@@ -10,18 +10,55 @@
     box-sizing: border-box;
 }
 
-input,
-button,
-textarea,
-select {
-    margin: 0;
-    font: inherit;
+.app  {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    * {
+        font-family: var(--basic-font-family);
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+        margin: 0;
+        font: inherit;
+    }
+
+    h1,h2,h3,h4,h5,h6, button {
+        font-family: var(--accent-font-family);
+        line-height: 1em;
+    }
+
+    .pagewrapper {
+        position: relative;
+        top: var(--header-height-normal);
+        background-color: var(---main-bg);
+        transition: all 0.25s ease-in-out;
+
+        > * {
+            width: 100%;
+        }
+    }
+
+    .opened {
+        width: 100%;
+        left: 0;
+    }
+
+    .collapsed{
+        left: 200px;
+        width: calc(100% - 200px);
+    }
+
+    
+    @media (max-width: 1240px) {
+        .pagewrapper {
+            top: var(--header-height-collapsed);
+        }
+    }
 }
 
-h1,h2,h3,h4,h5,h6, button {
-    font-family: var(--accent-font-family);
-}
 
-.app {
-    font-family: var(--basic-font-family);
-}

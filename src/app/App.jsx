@@ -3,9 +3,11 @@ import { Header } from 'widgets/Header/Header'
 import { AppRouter } from './providers/routesProvider/UI/Router'
 import { useTheme } from './providers/themeProvider/lib/useTheme'
 import './styles/index.scss'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { checkAuthority } from 'shared/config/store/actionCreators/authActions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectUserData } from 'shared/config/store/reducers/AuthSlice'
+import { Sidebar } from 'widgets/Sidebar'
 
 function App() {
     const { theme } = useTheme()
@@ -16,9 +18,17 @@ function App() {
         dispatch(checkAuthority())
     }, [])
 
+    const authorization = useSelector(selectUserData)
+
   return (
     <div className={useClassNames('app', [theme])}>
         <Header/>
+        {
+            authorization !== null &&
+            (authorization.role === 'admin' ||
+            authorization.role === 'moderator') &&
+            <Suspense fallback=''><Sidebar/></Suspense>
+        }
         <AppRouter/>
     </div>
   )

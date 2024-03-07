@@ -1,52 +1,38 @@
-import { MainPage } from "pages/MainPage"
-
-export const RoutesPaths = {
-    main: '/',
-    search: "/search",
-    review: "/review/:link",
-    faq: "/faq",
-    about: "/about",
-    register: "/register",
-    login: "/login",
-    profile: "/profile",
-    notfound: "/notfound",
-}
+import { CategoriesAdminPage } from "pages/CategoriesAdminPage";
+import { ComplaintsAdminPage } from "pages/ComplaintsAdminPage";
+import { MainPage } from "pages/MainPage";
+import { RequestsAdminPage } from "pages/RequestsAdminPage";
+import { ReviewsAdminPage } from "pages/ReviewsAdminPage";
+import { UsersAdminPage } from "pages/UsersAdminPage";
+import { routesPaths } from "shared/config/router/routerPaths";
 
 export const routerConfig = [
     {
-        path: RoutesPaths.main,
+        path: routesPaths.main,
         element: <MainPage/>
     },
     {
-        path: RoutesPaths.search,
-        element: <div/>
+        path: routesPaths.categories,
+        element: <CategoriesAdminPage/>
     },
     {
-        path: RoutesPaths.review,
-        element: <div/>
+        path: routesPaths.reviews,
+        element: <ReviewsAdminPage/>
     },
     {
-        path: RoutesPaths.faq,
-        element: <div/>
+        path: routesPaths.users,
+        element: <UsersAdminPage/>
     },
     {
-        path: RoutesPaths.about,
-        element: <div/>
+        path: routesPaths.requests,
+        element: <RequestsAdminPage/>
     },
     {
-        path: RoutesPaths.register,
-        element: <div/>
+        path: routesPaths.complaints,
+        element: <ComplaintsAdminPage/>
     },
     {
-        path: RoutesPaths.login,
-        element: <div/>
-    },
-    {
-        path: RoutesPaths.profile,
-        element: <div/>
-    },
-    {
-        path: RoutesPaths.notfound,
+        path: routesPaths.notfound,
         element: <div/>
     }
 ]

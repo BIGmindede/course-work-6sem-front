@@ -9,7 +9,9 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
+  settings: { 
+    react: { version: '18.2' }
+  },
   plugins: ['react-refresh'],
   rules: {
     'react/jsx-no-target-blank': 'off',
@@ -21,5 +23,5 @@ module.exports = {
     "no-undef": [0],
     "react-refresh/only-export-components": [0],
     "react/display-name": [0]
-  },
+  }
 }

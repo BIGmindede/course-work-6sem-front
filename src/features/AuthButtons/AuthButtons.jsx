@@ -1,12 +1,12 @@
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useClassNames } from 'shared/lib/useClassNames'
 import cls from './AuthButtons.module.scss'
 import { Button } from 'shared/UI/Button/Button'
 import { ButtonThemes } from 'shared/UI/Button/Button'
-import { Form } from '../Form'
-import { Suspense, useState } from 'react'
-import { registration, login, logout } from 'shared/config/store/actionCreators/authActions'
-import { DialogWindow } from '../DialogWindow'
-import { useDispatch } from 'react-redux'
+import { DialogWindow } from 'features/DialogWindow/DialogWindow'
+import { LoginForm } from 'entities/Forms/LoginForm'
+import { RegistrationForm } from 'entities/Forms/RegistrationForm'
 
 
 export const AuthButtons = ({ className, authorized }) => {
@@ -23,32 +23,14 @@ export const AuthButtons = ({ className, authorized }) => {
                     <Button action={() => setButtonActive('registration')}
                         className={ButtonThemes.BASIC}>Регистрация</Button>
                     {buttonActive === 'login' &&
-                        <Suspense fallback=''>
                         <DialogWindow closer={() => setButtonActive(null)}>
-                        <Form
-                            fields={[
-                                {type: 'email', placeholder: 'E-mail', value: 'email'},
-                                {type: 'password', placeholder: 'Пароль', value: 'password'}
-                            ]}
-                            action={(email, password) => dispatch(login(email, password))}
-                            buttonText='Войти'
-                        />
+                        <LoginForm/>
                         </DialogWindow>
-                        </Suspense>
                     }
                     {buttonActive === 'registration' &&
-                        <Suspense fallback=''>
                         <DialogWindow closer={() => setButtonActive(null)}>
-                        <Form
-                            fields={[
-                                {type: 'email', placeholder: 'E-mail', value: 'email'},
-                                {type: 'password', placeholder: 'Пароль', value: 'password'}
-                            ]}
-                            action={(email, password) => dispatch(registration(email, password))}
-                            buttonText='Регистрация'
-                        />
+                        <RegistrationForm/>
                         </DialogWindow>
-                        </Suspense>
                     }
                 </>
                 : <>

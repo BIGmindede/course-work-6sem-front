@@ -4,7 +4,7 @@ import { Button } from 'shared/UI/Button/Button'
 import { ButtonThemes } from 'shared/UI/Button/Button'
 import { useRef } from 'react'
 
-export default ({ className, fields, action, buttonText }) => {
+export const Form = ({ className, fields, action, buttonText }) => {
     const inputsContainterRef = useRef()
     const inputsRefs = useRef([])
 

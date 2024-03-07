@@ -1,9 +1,20 @@
-import { Button, ButtonThemes } from '../../../shared/UI/Button/Button'
+import { useDispatch } from 'react-redux'
+import { Button, ButtonThemes } from 'shared/UI/Button/Button'
+import { changeCollapsed } from 'shared/config/store/reducers/SidebarSlice'
+import AdminToolsIcon from 'shared/assets/AdminToolsIcon.svg?react'
 
 export default () => {
+
+    const dispatch = useDispatch()
+    
+    const handleSidebarTogglerToggle = () => {
+        dispatch(changeCollapsed())
+    }
+
+    
     return (
-        <Button className={ButtonThemes.CLEAR}>
-            toggle
+        <Button action={handleSidebarTogglerToggle} className={ButtonThemes.CLEAR}>
+            <AdminToolsIcon/>
         </Button>
     )
 }
