@@ -7,7 +7,6 @@ import { jwtDecode } from "jwt-decode"
 export const login = (email, password) => async (dispatch) => {
     dispatch(authLoading())
     try {
-        console.log(email, password)
         const { data } = await AuthService.login(email, password)
         const cookies = new Cookies()
         cookies.set('token', data.accessToken, jwtDecode(data.accessToken).exp)

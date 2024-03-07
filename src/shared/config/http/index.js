@@ -22,7 +22,7 @@ api.interceptors.response.use(config => {
     if (error.response.status == 401) {
         const originalRequest = error.config
         try {
-            const { data } = await axios.get(`${API_URL}/refresh`, {withCredentials: true})
+            const { data } = await axios.get(`${API_URL}/auth/refresh`, {withCredentials: true})
             cookies.set('token', data.accessToken, jwtDecode(data.accessToken).exp)
             return api.request(originalRequest)
         } catch (error) {
