@@ -1,0 +1,15 @@
+.entitycreator {
+    background-color: var(--main-bg);
+    width: fit-content;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+    h3 {
+        word-wrap: break-word;
+        text-align: center;
+    }
+}

@@ -1,12 +1,13 @@
 .dialogwindow {
     position: absolute;
+    top: 65px;
+    width: 100%;
+    padding: 20px;
     background-color: var(--main-bg);
     display: flex;
     border-radius: 15px;
-    top: 65px;
     transition: all 0.25s ease-in-out;
     animation: appear 0.15s ease-in-out;
-    width: 100%;
     box-shadow: 0 0 5px 1px gray;
 }
 

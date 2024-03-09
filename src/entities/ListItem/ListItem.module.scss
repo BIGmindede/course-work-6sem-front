@@ -1,0 +1,8 @@
+.listitem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--pale-txt);
+}

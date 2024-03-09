@@ -5,8 +5,8 @@ import cls from './AuthButtons.module.scss'
 import { Button } from 'shared/UI/Button/Button'
 import { ButtonThemes } from 'shared/UI/Button/Button'
 import { DialogWindow } from 'features/DialogWindow/DialogWindow'
-import { LoginForm } from 'entities/Forms/LoginForm'
-import { RegistrationForm } from 'entities/Forms/RegistrationForm'
+import { Form } from 'entities/Form/Form'
+import { login, logout, registration } from 'shared/config/store/actionCreators/authActions'
 
 
 export const AuthButtons = ({ className, authorized }) => {
@@ -24,12 +24,26 @@ export const AuthButtons = ({ className, authorized }) => {
                         className={ButtonThemes.BASIC}>Регистрация</Button>
                     {buttonActive === 'login' &&
                         <DialogWindow closer={() => setButtonActive(null)}>
-                        <LoginForm/>
+                        <Form
+                            fields={[
+                                {type: 'email', placeholder: 'E-mail'},
+                                {type: 'password', placeholder: 'Пароль'}
+                            ]}
+                            action={(email, password) => dispatch(login(email, password))}
+                            buttonText='Войти'
+                        />
                         </DialogWindow>
                     }
                     {buttonActive === 'registration' &&
                         <DialogWindow closer={() => setButtonActive(null)}>
-                        <RegistrationForm/>
+                        <Form
+                            fields={[
+                                {type: 'email', placeholder: 'E-mail'},
+                                {type: 'password', placeholder: 'Пароль'}
+                            ]}
+                            action={(email, password) => dispatch(registration(email, password))}
+                            buttonText='Регистрация'
+                        />
                         </DialogWindow>
                     }
                 </>

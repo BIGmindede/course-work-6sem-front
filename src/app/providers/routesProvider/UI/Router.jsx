@@ -2,24 +2,43 @@ import { Route, Routes } from 'react-router-dom'
 import { Suspense } from 'react'
 import { useSelector } from 'react-redux'
 import { selectSidebarCollapsed } from 'shared/config/store/reducers/SidebarSlice'
-import { routerConfig } from '../config/routerConfig'
+import { basicRouterConfig, adminRouterConfig } from '../config/routerConfig'
+import { selectUserData } from 'shared/config/store/reducers/AuthSlice'
 
 export const AppRouter = () => {
 
     const pageCollapsed = !useSelector(selectSidebarCollapsed)
 
+    const authorization = useSelector(selectUserData)
+    console.log()
+
     return (
         <Routes>
             {
-                routerConfig.map(({ path, element }) =>
+                adminRouterConfig.map(({ path, element }) =>
                     <Route key={path} path={path} element={
                         <Suspense fallback={<div>Загрузка...</div>}>
                             <div className={['pagewrapper', pageCollapsed ? 'collapsed' : 'opened'].join(' ')}>
-                                {element}
+                                {authorization !== null &&
+                                    (authorization.role === 'admin') 
+                                    ? element
+                                    : <div>Access Denied</div>
+                                }
                             </div>
                         </Suspense>
                     }/>
                 )
+            }
+            {
+                basicRouterConfig.map(({ path, element }) =>
+                <Route key={path} path={path} element={
+                    <Suspense fallback={<div>Загрузка...</div>}>
+                        <div className={['pagewrapper', pageCollapsed ? 'collapsed' : 'opened'].join(' ')}>
+                            {element}
+                        </div>
+                    </Suspense>
+                }/>
+            )
             }
         </Routes>
     )

@@ -13,6 +13,7 @@ export const Form = ({ className, fields, action, buttonText }) => {
         inputsRefs.current = Array.from(inputsContainterRef.current.children).map((el) => el)
         const values = inputsRefs.current.filter(el => el.tagName === 'INPUT').map(el => el.value)
         action(...values)
+        inputsRefs.current.forEach(input => { input.value = '' })
     }
 
     return (

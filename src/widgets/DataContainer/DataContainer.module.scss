@@ -1,0 +1,9 @@
+.datacontainer {
+    background-color: var(--main-bg);
+    width:  100%;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
