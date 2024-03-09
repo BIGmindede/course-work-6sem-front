@@ -13,7 +13,7 @@ export default () => {
 
     useEffect(() => {
         dispatch(getAll())
-    }, [])
+    }, [dispatch])
 
     const authorization = useSelector(selectUserData)
     const adminId = authorization && authorization.id
@@ -21,6 +21,10 @@ export default () => {
     const categories = useSelector(selectCategories)
 
     const buttons = [
+        {
+            title: 'Изменить',
+            action: () => {}
+        },
         {
             title: 'Удалить',
             action: (itemData, e) => {
@@ -39,8 +43,7 @@ export default () => {
 
     return (
         <div>
-            <EntityCreator>
-                <h3>Добавить категорию</h3>
+            <EntityCreator title={"Добавить категорию"}>
                 <Form
                     fields={[
                         { type: 'text', placeholder: 'Название категории'}

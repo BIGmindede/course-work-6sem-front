@@ -11,11 +11,13 @@ export const ListItem = ({ className, itemData, buttons, dataTransformer }) => {
             <div>
                 {Object.keys(content).map(key => <div key={key}>{key}: {content[key]}</div>)}
             </div>
-            {!!buttons && buttons.map(button => 
-                <Button className={ButtonThemes.BASIC} key={button.title} action={(e) => button.action(itemData, e)}>
-                    {button.title}
-                </Button>)
-            }
+            <div className={cls.buttons}>
+                {!!buttons && buttons.map(button => 
+                    <Button className={ButtonThemes.BASIC} key={button.title} action={(e) => button.action(itemData, e)}>
+                        {button.title}
+                    </Button>)
+                }
+            </div>
         </div>
     )
 }

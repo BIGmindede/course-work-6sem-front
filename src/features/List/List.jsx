@@ -6,7 +6,7 @@ export const List = ({ className, data, buttons, dataTransformer }) => {
     return (
         <div className={useClassNames(cls.list, [cls[className]])}>
             {data.map((listItem, index) =>
-                <ListItem 
+                <ListItem
                     key={listItem._id}
                     itemData={{ index: index+1 , ...listItem }}
                     buttons={buttons}
