@@ -14,6 +14,9 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    color: var(--main-txt);
+    --input-bg: #FFFFFF;
+    --input-txt: #232526;
 
     * {
         font-family: var(--basic-font-family);
@@ -35,7 +38,7 @@
     .pagewrapper {
         position: relative;
         top: var(--header-height-normal);
-        background-color: var(--sec-bg);
+        background-color: var(--main-bg);
         transition: all 0.25s ease-in-out;
 
         > * {

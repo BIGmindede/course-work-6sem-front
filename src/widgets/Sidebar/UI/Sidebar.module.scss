@@ -10,7 +10,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px 20px;
-    box-shadow: 0 0 5px 1px gray;
+    box-shadow: 0 0 5px 1px var(--shadow);
     transition: transform 0.25s ease-in-out;
     z-index: 1;
 

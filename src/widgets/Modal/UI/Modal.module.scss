@@ -19,7 +19,7 @@
         background-color: var(--main-bg);
         border-radius: 20px;
         padding: 40px;
-        box-shadow: 0 0 5px 1px gray;
+        box-shadow: 0 0 5px 1px var(--shadow);
 
         .closer {
             position: absolute;

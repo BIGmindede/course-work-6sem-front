@@ -1,5 +1,5 @@
 .entitycreator {
-    background-color: var(--main-bg);
+    background-color: var(--sec-bg);
     width: fit-content;
     border-radius: 20px;
     display: flex;
@@ -7,6 +7,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    color: var(--main-txt);
 
     h3 {
         word-wrap: break-word;
