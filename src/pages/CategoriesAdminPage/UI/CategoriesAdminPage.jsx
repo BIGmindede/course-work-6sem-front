@@ -1,18 +1,21 @@
 import { Form } from "entities/Form/Form"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { create, getAll, remove } from "shared/config/store/actionCreators/categoryActions"
+import { createCategory, getAllCategories, removeCategory, updateCategory } from "shared/config/store/actionCreators/categoryActions"
 import { selectUserData } from "shared/config/store/reducers/AuthSlice"
 import { selectCategories } from "shared/config/store/reducers/CategorySlice"
 import { DataContainer } from "widgets/DataContainer/DataContainer"
 import { EntityCreator } from "widgets/EntityCreator/EntityCreator"
+import { Modal } from "widgets/Modal"
 
 export default () => {
+
+    const [modalActiveItem, setModalActiveItem] = useState(null)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getAll())
+        dispatch(getAllCategories())
     }, [dispatch])
 
     const authorization = useSelector(selectUserData)
@@ -23,19 +26,22 @@ export default () => {
     const buttons = [
         {
             title: 'Изменить',
-            action: () => {}
+            action: (itemData, e) => {
+                e.preventDefault()
+                setModalActiveItem(itemData.id)
+            }
         },
         {
             title: 'Удалить',
             action: (itemData, e) => {
                 e.preventDefault()
-                dispatch(remove(itemData._id))
+                dispatch(removeCategory(itemData.id))
             }
         }
     ]
 
     const dataTransformer = (fields) => ({
-        "ID категории": fields._id,
+        "ID категории": fields.id,
         "Название категории": fields.title,
         "ID запроса": fields.request ? fields.request : "Без запроса",
         "ID автора": fields.author
@@ -43,15 +49,30 @@ export default () => {
 
     return (
         <div>
-            <EntityCreator title={"Добавить категорию"}>
-                <Form
-                    fields={[
-                        { type: 'text', placeholder: 'Название категории'}
-                    ]}
-                    action={(title) => dispatch(create(title, adminId, null))}
-                    buttonText={'Создать'}
-                />
-            </EntityCreator>
+            {modalActiveItem &&   
+                <Modal closer={() => setModalActiveItem(null)}>
+                    <Form
+                        fields={[
+                            { type: 'text', placeholder: 'Изменить название'},
+                            { type: 'file', placeholder: 'Изменить картинку'}
+                        ]}
+                        action={(title, picture) => {
+                            dispatch(updateCategory(modalActiveItem, title, picture))
+                            setModalActiveItem(null)
+                        }}
+                        buttonText={"Сохранить"}
+                    />
+                </Modal>
+            }
+            <EntityCreator
+                title={"Добавить категорию"}
+                fields={[
+                    { type: 'text', placeholder: 'Название категории'},
+                    { type: 'file', placeholder: 'Прикрепить картинку'}
+                ]}
+                action={(title, picture) => dispatch(createCategory(title, picture, adminId, null))}
+                buttonText={'Создать'}
+            />
             <DataContainer buttons={buttons} data={categories} dataTransformer={dataTransformer}/>
         </div>
     )

@@ -9,6 +9,23 @@
     transition: all 0.25s ease-in-out;
     animation: appear 0.15s ease-in-out;
     box-shadow: 0 0 5px 1px gray;
+
+    .closer {
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        color: var(--main-txt);
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+    }
+
+    .closer:hover {
+        background-color: red;
+        color: var(--accent-txt);
+    }
 }
 
 @keyframes appear {

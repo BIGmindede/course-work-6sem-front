@@ -1,25 +1,33 @@
-import { useClassNames } from 'shared/lib/useClassNames'
+import { useState } from 'react'
 import cls from './Form.module.scss'
+import { useClassNames } from 'shared/lib/useClassNames'
 import { Button } from 'shared/UI/Button/Button'
 import { ButtonThemes } from 'shared/UI/Button/Button'
-import { useRef } from 'react'
+import { Input } from 'shared/UI/Input/Input'
 
 export const Form = ({ className, fields, action, buttonText }) => {
-    const inputsContainterRef = useRef()
-    const inputsRefs = useRef([])
+
+    const initialState = {...fields.map(field => field.placeholder)}
+
+    const [inputsValues, setInputsValues] = useState(initialState)
 
     const handleFormAction = (e) => {
         e.preventDefault()
-        inputsRefs.current = Array.from(inputsContainterRef.current.children).map((el) => el)
-        const values = inputsRefs.current.filter(el => el.tagName === 'INPUT').map(el => el.value)
+        const values = Object.values(inputsValues)
         action(...values)
-        inputsRefs.current.forEach(input => { input.value = '' })
+        setInputsValues(initialState)
     }
 
     return (
-        <form ref={inputsContainterRef} className={useClassNames(cls.form, [cls[className]])}>
+        <form className={useClassNames(cls.form, [cls[className]])}>
             {
-                fields.map(field => <input key={field.placeholder} type={field.type} placeholder={field.placeholder}/>)
+                fields.map((field, index) =>
+                    <Input 
+                        inputValue={inputsValues[index]}
+                        setInputValue={(value) => setInputsValues({...inputsValues, [index]: value})}
+                        key={index} type={field.type} placeholder={field.placeholder}
+                    />
+                )
             }
             <Button action={(e) => handleFormAction(e)} className={ButtonThemes.BASIC}>{buttonText}</Button>
         </form>

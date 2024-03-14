@@ -2,5 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    min-width: fit-content;
     gap: 20px;
 }

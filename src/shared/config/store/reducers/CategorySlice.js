@@ -20,9 +20,14 @@ const categorySlice = createSlice({
             state.loading = false
             state.categoriesList = [...state.categoriesList, action.payload]
         },
+        updateCategorySuccess: (state, action) => {
+            state.loading = false
+            state.categoriesList = state.categoriesList
+                .map(category => category.id === action.payload.id ? action.payload : category)
+        },
         removeCategorySuccess: (state, action) => {
             state.loading = false
-            state.categoriesList = state.categoriesList.filter(category => category._id !== action.payload)
+            state.categoriesList = state.categoriesList.filter(category => category.id !== action.payload)
         },
         fetchCategoriesError: (state, action) => {
             state.loading = false
@@ -35,6 +40,7 @@ export const {
     fetchCategoriesLoading,
     fetchCategoriesSuccess,
     createCategorySuccess,
+    updateCategorySuccess,
     removeCategorySuccess,
     fetchCategoriesError
 } = categorySlice.actions

@@ -1,4 +1,5 @@
 import { useClassNames } from 'shared/lib/useClassNames'
+import CancelIcon from 'shared/assets/CancelIcon.svg?react'
 import cls from './DialogWindow.module.scss'
 
 export const DialogWindow = ({ className, children, closer }) => {
@@ -6,7 +7,7 @@ export const DialogWindow = ({ className, children, closer }) => {
         <div className={useClassNames(cls.dialogwindow, [cls[className]])}>
             {children}
             {/* Исправить на нормальный крестик */}
-            <span onClick={closer}>Х</span>
+            <span onClick={closer} className={cls.closer}><CancelIcon/></span>
         </div>
     )
 }

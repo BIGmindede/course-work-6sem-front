@@ -35,11 +35,12 @@
     .pagewrapper {
         position: relative;
         top: var(--header-height-normal);
-        padding: 20px;
         background-color: var(--sec-bg);
         transition: all 0.25s ease-in-out;
 
         > * {
+            position: relative;
+            padding: 20px;
             width: 100%;
             display: flex;
             flex-wrap: wrap;

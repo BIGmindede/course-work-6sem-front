@@ -1,32 +1,42 @@
 import CategoryService from "shared/config/http/categoryService"
 import { fetchCategoriesError,fetchCategoriesLoading,
-    fetchCategoriesSuccess, createCategorySuccess, removeCategorySuccess } 
+    fetchCategoriesSuccess, createCategorySuccess, removeCategorySuccess, updateCategorySuccess } 
     from "../reducers/CategorySlice"
 
-export const create = (title, author, request) => async (dispatch) => {
+export const createCategory = (title, picture, author, request) => async (dispatch) => {
     dispatch(fetchCategoriesLoading())
     try {
-        const { data } = await CategoryService.create(title, author, request) 
+        const { data } = await CategoryService.createCategory(title, picture, author, request) 
         dispatch(createCategorySuccess(data))
     } catch (error) {
         dispatch(fetchCategoriesError(error.message))
     }
 }
 
-export const getAll = () => async (dispatch) => {
+export const updateCategory = (id, title, picture) => async (dispatch) => {
     dispatch(fetchCategoriesLoading())
     try {
-        const { data } = await CategoryService.getAll()
+        const { data } = await CategoryService.updateCategory(id, title, picture) 
+        dispatch(updateCategorySuccess(data))
+    } catch (error) {
+        dispatch(fetchCategoriesError(error.message))
+    }
+}
+
+export const getAllCategories = () => async (dispatch) => {
+    dispatch(fetchCategoriesLoading())
+    try {
+        const { data } = await CategoryService.getAllCategories()
         dispatch(fetchCategoriesSuccess(data))
     } catch (error) {
         dispatch(fetchCategoriesError(error.message))
     }
 }
 
-export const remove = (id) => async (dispatch) => {
+export const removeCategory = (id) => async (dispatch) => {
     dispatch(fetchCategoriesLoading())
     try {
-        await CategoryService.remove(id)
+        await CategoryService.removeCategory(id)
         dispatch(removeCategorySuccess(id))
     } catch (error) {
         dispatch(fetchCategoriesError(error.message))

@@ -3,12 +3,28 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
+    min-width: fit-content;
     padding: 10px 0;
     border-bottom: 2px solid var(--pale-txt);
+
+
+
+    .fields {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 20px;
+        }
+    }
 
     .buttons {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 10px;
     }
 }

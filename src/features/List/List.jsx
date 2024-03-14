@@ -5,10 +5,10 @@ import { ListItem } from 'entities/ListItem/ListItem'
 export const List = ({ className, data, buttons, dataTransformer }) => {
     return (
         <div className={useClassNames(cls.list, [cls[className]])}>
-            {data.map((listItem, index) =>
+            {data.map((listItem) =>
                 <ListItem
-                    key={listItem._id}
-                    itemData={{ index: index+1 , ...listItem }}
+                    key={listItem.id}
+                    itemData={listItem}
                     buttons={buttons}
                     dataTransformer={dataTransformer}
                 />)}

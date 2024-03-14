@@ -1,0 +1,41 @@
+.modalwrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    backdrop-filter: blur(5px);
+
+    .modal {
+        position: relative;
+        width: fit-content;
+        min-width: 400px;
+        height: fit-content;
+        background-color: var(--main-bg);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 0 5px 1px gray;
+
+        .closer {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: var(--main-txt);
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+        }
+    
+        .closer:hover {
+            background-color: red;
+            color: var(--accent-txt);
+        }
+    }
+}

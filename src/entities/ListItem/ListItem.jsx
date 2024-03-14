@@ -8,8 +8,14 @@ export const ListItem = ({ className, itemData, buttons, dataTransformer }) => {
 
     return (
         <div className={useClassNames(cls.listitem, [cls[className]])}>
-            <div>
-                {Object.keys(content).map(key => <div key={key}>{key}: {content[key]}</div>)}
+            <div className={cls.fields}>
+                {itemData.pictureName
+                    ? <img src={`http://localhost:5000/${itemData.pictureName}`} alt="" />
+                    : <></>
+                }
+                <div>
+                    {Object.keys(content).map(key => <div key={key}>{key}: {content[key]}</div>)}
+                </div>
             </div>
             <div className={cls.buttons}>
                 {!!buttons && buttons.map(button => 

@@ -1,10 +1,12 @@
-// import { useClassNames } from 'shared/lib/useClassNames'
-// import cls from './MainPage.module.scss'
+import { CategoriesBox } from "widgets/CategoriesBox/CategoriesBox"
 
 export default () => {
+
+
+
     return (
-        <div style={{height: "3000px"}}>
-            MainPage
+        <div>
+            <CategoriesBox/>
         </div>
     )
 }

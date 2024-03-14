@@ -7,6 +7,7 @@ import { ButtonThemes } from 'shared/UI/Button/Button'
 import { DialogWindow } from 'features/DialogWindow/DialogWindow'
 import { Form } from 'entities/Form/Form'
 import { login, logout, registration } from 'shared/config/store/actionCreators/authActions'
+import { changeCollapsed } from 'shared/config/store/reducers/SidebarSlice'
 
 
 export const AuthButtons = ({ className, authorized }) => {
@@ -50,7 +51,11 @@ export const AuthButtons = ({ className, authorized }) => {
                 : <>
                     <Button action={() => {}} 
                         className={ButtonThemes.BASIC}>Профиль</Button>
-                    <Button action={() => dispatch(logout())}
+                    <Button 
+                        action={() => {
+                            dispatch(logout())
+                            dispatch(changeCollapsed())
+                        }}
                         className={ButtonThemes.BASIC}>Выйти</Button>
                 </>
             }

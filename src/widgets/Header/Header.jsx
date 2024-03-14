@@ -11,8 +11,6 @@ import { selectUserData } from 'shared/config/store/reducers/AuthSlice'
 export const Header = ({ className }) => {
     const authorization = useSelector(selectUserData)
 
-    console.log(authorization)
-
     return (
         <div className={useClassNames(cls.header, [cls[className]])}>
             <div className={cls.navshortcut}>
