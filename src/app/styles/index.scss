@@ -14,9 +14,9 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    min-height: 100vh;
     color: var(--main-txt);
-    --input-bg: #FFFFFF;
-    --input-txt: #232526;
+    background-color: var(--main-bg);
 
     * {
         font-family: var(--basic-font-family);
@@ -39,6 +39,7 @@
         position: relative;
         top: var(--header-height-normal);
         background-color: var(--main-bg);
+        min-height: 100%;
         transition: all 0.25s ease-in-out;
 
         > * {

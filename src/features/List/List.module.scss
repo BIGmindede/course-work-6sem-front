@@ -1,7 +1,7 @@
 .list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    min-width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
     gap: 20px;
+    grid-auto-flow: dense;
+    width: 100%;
 }
