@@ -1,16 +1,20 @@
 .entitycreator {
     background-color: var(--sec-bg);
-    width: fit-content;
-    border-radius: 20px;
+    border-radius: clamp(10px, 2vw, 20px);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    align-items: center;
+    gap: clamp(10px, 2vw, 20px);
+    padding: clamp(10px, 2vw, 20px);
     color: var(--main-txt);
+    width: 100%;
 
-    h3 {
-        word-wrap: break-word;
+    h2 {
         text-align: center;
+    }
+
+    * {
+        word-wrap: break-word;
     }
 }

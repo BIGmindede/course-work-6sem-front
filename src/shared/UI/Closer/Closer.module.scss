@@ -1,0 +1,21 @@
+.closer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--main-txt);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+    .closericon {        
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.closer:hover {
+    background-color: red;
+    color: var(--accent-txt);
+}

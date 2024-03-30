@@ -11,8 +11,6 @@
 :root {
     --accent-font-family: "Days Sans";
     --basic-font-family: "Murecho Light";
-    --header-height-normal: 80px;
-    --header-height-collapsed: 140px;
-    --input-bg: #FFFFFF;
-    --input-txt: #232526;
+    --header-height-normal: clamp(40px, 6vw, 60px);
+    --sidebar-width: clamp(100px, 20vw,200px);
 }

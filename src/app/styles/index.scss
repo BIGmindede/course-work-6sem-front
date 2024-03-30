@@ -17,38 +17,56 @@
     min-height: 100vh;
     color: var(--main-txt);
     background-color: var(--main-bg);
+    transition: all 0.25s ease-in-out;
 
-    * {
+    *:not(h1,h2,h3,h4,h5,h6) {
         font-family: var(--basic-font-family);
+        font-size: clamp(6px, 1.5vw, 16px);
     }
 
     input,
-    button,
     textarea,
-    select {
+    select,
+    label {
         margin: 0;
         font: inherit;
+        font-size: clamp(12px, 1.6vw, 16px);
     }
 
-    h1,h2,h3,h4,h5,h6, button {
+    span {
+        font-size: clamp(8px, 1.5vw, 16px);
+    }
+
+    button {
         font-family: var(--accent-font-family);
-        line-height: 1em;
+        font-size: clamp(8px, 1.6vw, 16px);
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-family: var(--accent-font-family);
     }
 
     .pagewrapper {
         position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         top: var(--header-height-normal);
         background-color: var(--main-bg);
-        min-height: 100%;
         transition: all 0.25s ease-in-out;
+        width: 100%;
+        height: fit-content;
 
-        > * {
-            position: relative;
-            padding: 20px;
-            width: 100%;
+        > div {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: clamp(10px, 1vw, 20px);
+            padding: clamp(5px, 1vw, 10px);
+            min-width: 250px;
+            width: 100%;
+            max-width: 1500px;
+            height: fit-content;
+            overflow-x: hidden;
         }
     }
 
@@ -58,16 +76,21 @@
     }
 
     .collapsed{
-        left: 200px;
-        width: calc(100% - 200px);
+        left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
     }
 
+    svg {
+        width: clamp(15px, 3vw,30px);
+        height: clamp(15px, 3vw,30px);
+    }
     
     @media (max-width: 1240px) {
         .pagewrapper {
-            top: var(--header-height-collapsed);
+            top: calc(2 * var(--header-height-normal));
         }
     }
+
 }
 
 

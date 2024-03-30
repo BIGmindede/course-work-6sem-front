@@ -1,7 +1,7 @@
 .button {
-    width: 180px;
-    height: 50px;
-    border-radius: 20px;
+    width: clamp(90px,18vw,180px);
+    height: clamp(30px,5vw,50px);
+    border-radius: clamp(10px,2vw,20px);
     cursor: pointer;
     color: var(--accent-txt);
 }
@@ -20,7 +20,8 @@
 }
 
 .round {
-    width: 50px;
+    width: clamp(35px, 5vw, 50px);
+    height: clamp(35px, 5vw, 50px);
     background-color: var(--subaccent-el);
     border-radius: 100%;
 }

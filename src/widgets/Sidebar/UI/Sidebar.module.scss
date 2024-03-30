@@ -1,15 +1,15 @@
 .sidebar {
     position: fixed;
-    top: var(--header-height-normal);
+    top: clamp(40px, 6vw, 60px);
     left: 0;
-    width: 200px;
-    height: calc(100vh - var(--header-height-normal));
+    width: clamp(100px, 20vw,200px);
+    height: calc(100vh - clamp(40px, 6vw, 60px));
     background-color: var(--main-bg);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px 20px;
+    gap: clamp(10px, 1vw, 20px);
+    padding: clamp(10px, 1vw, 20px);
     box-shadow: 0 0 5px 1px var(--shadow);
     transition: transform 0.25s ease-in-out;
     z-index: 1;
@@ -26,12 +26,12 @@
         flex-direction: column;
         flex-wrap: wrap;
         list-style: none;
-        gap: 20px;
+        gap: clamp(10px, 1vw, 20px);
 
         li {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: clamp(3px, 1vw, 5px);
         }
     }
 }
@@ -46,7 +46,7 @@
 
 @media (max-width: 1240px) {
     .sidebar {
-        top: var(--header-height-collapsed);
-        height: calc(100vh - var(--header-height-collapsed));
+        top: calc(2 * clamp(40px, 6vw, 60px));
+        height: calc(100vh - 2 * clamp(40px, 6vw, 60px));
     }
 }

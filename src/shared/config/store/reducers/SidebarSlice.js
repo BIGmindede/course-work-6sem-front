@@ -6,8 +6,9 @@ const SidebarSlice = createSlice({
         collapsed: true
     },
     reducers: {
-        changeCollapsed: (state) => {
-            state.collapsed = !state.collapsed
+        changeCollapsed: (state, action) => {
+            if (action.payload !== undefined) state.collapsed = action.payload
+            else state.collapsed = !state.collapsed
         }
     }
 })

@@ -1,7 +1,14 @@
 .list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
-    gap: 20px;
-    grid-auto-flow: dense;
     width: 100%;
+    justify-content: center;
+    gap: clamp(5px, 1vw, 10px);
+}
+
+.stroke {
+    grid-template-columns: repeat(auto-fit, clamp(200px, 100%, 725px));
+}
+
+.square {
+    grid-template-columns: repeat(auto-fit, calc(clamp(90px,36vw,360px) + 3 * clamp(5px, 1vw, 10px)));
 }

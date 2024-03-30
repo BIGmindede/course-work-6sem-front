@@ -27,6 +27,6 @@ export default class CategoryService {
     }
 
     static async removeCategory(id) {
-        return api.delete(`/category/?id=${id}`)
+        return api.delete(`/category/${id}`)
     }
 }

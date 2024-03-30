@@ -2,7 +2,8 @@
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    font-size: 5px;
 }
 
 @media (max-width: 1240px) {

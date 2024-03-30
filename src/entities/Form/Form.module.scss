@@ -1,8 +1,10 @@
 .form {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    width: 100%;
+    gap: clamp(10px, 2vw, 20px);
+    width: fit-content;
+    max-width: 680px;
     color: var(--main-txt);
 }

@@ -54,7 +54,7 @@ export const AuthButtons = ({ className, authorized }) => {
                     <Button 
                         action={() => {
                             dispatch(logout())
-                            dispatch(changeCollapsed())
+                            dispatch(changeCollapsed(true))
                         }}
                         className={ButtonThemes.BASIC}>Выйти</Button>
                 </>

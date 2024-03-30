@@ -1,38 +1,154 @@
 .input {
-    height: 40px;
+    width: clamp(165px, 20vw,200px);
+    height: clamp(30px, 4vw, 40px);
     border-radius: 10px;
-    padding: 0 10px;
+    padding: 0 clamp(5px, 1vw, 10px);
     background-color: var(--input-bg);
     color: var(--input-txt);
+    border: 1px solid var(--pale-txt);
+}
+
+.textarea {
+    width: clamp(200px, 100%, 640px);
+    min-height: 150px;
+    border-radius: 10px;
+    padding: clamp(5px, 1vw, 10px);
+    background-color: var(--input-bg);
+    color: var(--input-txt);
+    resize: vertical;
+    border: 1px solid var(--pale-txt);
+}
+
+.select {
+    width: clamp(165px, 20vw,200px);
+    height: clamp(30px, 4vw, 40px);
+    border-radius: 10px;
+    color: var(--input-txt);
+    position: relative;
+    transition: all 0.25s ease-in-out;
+    user-select: none;
+    z-index: 1;
+    --arrow-rotation: 90deg;
+
+    > label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: var(--input-bg);
+        border-radius: 10px;
+        padding: 0 clamp(5px, 1vw, 10px);
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+        z-index: 2;
+        border: 1px solid var(--pale-txt);
+    }
+
+    > label::after {
+        content: ">";
+        position: absolute;
+        top: 23%;
+        right: 7%;
+        transform: rotate(var(--arrow-rotation));
+    }
+
+    > label:hover {
+        background-color: var(--subaccent-el);
+        color: var(--accent-txt);
+    }
+
+    > ul {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        display: none;
+        list-style: none;
+        overflow: hidden;
+        background-color: var(--sec-bg);
+        color: var(--main-txt);
+        border-radius: 10px;
+        padding-top: clamp(30px, 4vw, 40px);
+        z-index: 1;
+        transition: all 0.15s ease-in-out;
+        box-shadow: 0 0 5px 1px var(--shadow);
+
+        li {
+            width: 100%;
+            height: clamp(30px, 4vw, 40px);;
+            padding: 0 clamp(5px, 1vw, 10px);
+            transition: all 0.15s ease-in-out;
+
+            label {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: clamp(30px, 4vw, 40px);;
+                cursor: pointer;
+            }
+        }
+
+        li:hover {
+            color: var(--accent-txt);
+            background-color: var(--subaccent-el);
+        }
+    }
+
+    .checkbox:checked + ul {
+        display: flex;
+        flex-direction: column;
+        --arrow-rotation: 270deg;
+    }
 }
 
 .fileinput {
     display: none;
 }
 
-.inputlabel {
+.fileinputlabel {
+    width: clamp(165px, 20vw,200px);
+    height: clamp(30px, 4vw, 40px);
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 5px;
+    gap: clamp(2px, 1vw, 5px);
     background-color: green;
     color: var(--accent-txt);
-    padding: 10px;
+    padding: clamp(5px, 1vw, 10px);
     border-radius: 10px;
+    border: 1px solid var(--pale-txt);
 
     > span {
+        position: relative;
+        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-evenly;
-        gap: 5px;
+        gap: clamp(2px, 1vw, 5px);
+        
         hr {
             height: 100%;
             width: 0px;
             border: 1px solid var(--pale-txt);
+        }
+
+        .uploadarrowicon {
+            position: absolute;
+            left: 0;
+        }
+
+        .fileplaceholder {
+            position: relative;
+            flex-grow: 1;
+            text-align: center;
+            z-index: 0;
+        }
+
+        h3 {
+            font-size: clamp(8px, 1.2vw, 12px)
         }
     }
 }

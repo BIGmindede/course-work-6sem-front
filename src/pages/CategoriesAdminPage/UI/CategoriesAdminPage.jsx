@@ -1,4 +1,5 @@
 import { Form } from "entities/Form/Form"
+import { listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { createCategory, getAllCategories, removeCategory, updateCategory } from "shared/config/store/actionCreators/categoryActions"
@@ -41,10 +42,9 @@ export default () => {
     ]
 
     const dataTransformer = (fields) => ({
-        "ID категории": fields.id,
-        "Название категории": fields.title,
-        "ID запроса": fields.request ? fields.request : "Без запроса",
-        "ID автора": fields.author
+        "ID категории": {data: fields.id},
+        "ID запроса": {data: fields.request ? fields.request : "Без запроса"},
+        "ID автора": {data: fields.author}
     })
 
     return (
@@ -54,7 +54,7 @@ export default () => {
                     <Form
                         fields={[
                             { type: 'text', placeholder: 'Изменить название'},
-                            { type: 'file', placeholder: 'Изменить картинку'}
+                            { type: 'file', placeholder: 'Картинка'}
                         ]}
                         action={(title, picture) => {
                             dispatch(updateCategory(modalActiveItem, title, picture))
@@ -68,12 +68,18 @@ export default () => {
                 title={"Добавить категорию"}
                 fields={[
                     { type: 'text', placeholder: 'Название категории'},
-                    { type: 'file', placeholder: 'Прикрепить картинку'}
+                    { type: 'file', placeholder: 'Картинка'}
                 ]}
                 action={(title, picture) => dispatch(createCategory(title, picture, adminId, null))}
                 buttonText={'Создать'}
             />
-            <DataContainer buttons={buttons} data={categories} dataTransformer={dataTransformer}/>
+            <DataContainer
+                buttons={buttons}
+                data={categories}
+                dataTransformer={dataTransformer}
+                redundant
+                listtheme={listItemThemes.STROKE}
+            />
         </div>
     )
 }
