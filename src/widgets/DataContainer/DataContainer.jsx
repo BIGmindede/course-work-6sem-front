@@ -9,7 +9,8 @@ export const DataContainer = ({
     dataTransformer,
     redundant,
     listTheme,
-    itemsOnClick
+    itemsOnClick,
+    getTitleField
 }) => {
 
     return (
@@ -21,6 +22,7 @@ export const DataContainer = ({
                 redundant={redundant}
                 itemsOnClick={itemsOnClick}
                 className={listTheme}
+                getTitleField={getTitleField}
             />
         </div>
     )

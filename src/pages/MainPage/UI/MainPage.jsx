@@ -42,8 +42,14 @@ export default () => {
     ]
 
     const dataTransformer = (fields) => ({
-        "Автор": {elemClass: listItemElementsClasses.AUTHOR, data: fields.author},
-        "Надежость": {elemClass: listItemElementsClasses.RATE, data: fields.reliability.toFixed(1)}
+        "Автор": {
+            elemClass: listItemElementsClasses.AUTHOR,
+            data: fields.author.nickname ?? fields.author.email
+        },
+        "Надежость": {
+            elemClass: listItemElementsClasses.RATE,
+            data: fields.reliability.toFixed(1)
+        }
     })
 
     return (
@@ -69,10 +75,8 @@ export default () => {
                 data={reviews}
                 dataTransformer={dataTransformer}
                 listTheme={listItemThemes.SQUARE}
-                itemsOnClick={(itemData) => {
-                    console.log(itemData)
-                    navigate(`/review/${itemData.id}`)
-                }}
+                itemsOnClick={(itemData) => navigate(`/review/${itemData.id}`)}
+                getTitleField={(itemData) => itemData.title}
             />
         </div>
     )

@@ -44,7 +44,7 @@ export default () => {
     const dataTransformer = (fields) => ({
         "ID категории": {data: fields.id},
         "ID запроса": {data: fields.request ? fields.request : "Без запроса"},
-        "ID автора": {data: fields.author}
+        "ID автора": {data: fields.author.id}
     })
 
     return (
@@ -79,6 +79,7 @@ export default () => {
                 dataTransformer={dataTransformer}
                 redundant
                 listtheme={listItemThemes.STROKE}
+                getTitleField={(itemData) => itemData.title}
             />
         </div>
     )

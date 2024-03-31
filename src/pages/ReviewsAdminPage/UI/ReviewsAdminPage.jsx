@@ -1,5 +1,5 @@
 import { listItemThemes } from "entities/ListItem/ListItem"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { getAllReviews, removeReview } from "shared/config/store/actionCreators/reviewActions"
@@ -21,7 +21,7 @@ export default () => {
 
     const buttons = [
         {
-            title: 'Перейти',
+            title: 'Подробнее',
             action: (itemData, e) => {
                 e.preventDefault()
                 navigate(`/review/${itemData.id}`)
@@ -37,8 +37,9 @@ export default () => {
     ]
 
     const dataTransformer = (fields) => ({
+        "ID отзыва": {data: fields.id},
         "Заголовок": {data: fields.title},
-        "Автор": {data: fields.author},
+        "ID автора": {data: fields.author.id},
         "Содержание": {data: truncate(fields.content, 23)},
         "Надежость": {data: fields.reliability},
         "Дата загрузки": {data: transformDate(new Date(fields.date))},
@@ -53,6 +54,7 @@ export default () => {
                 dataTransformer={dataTransformer}
                 redundant
                 listtheme={listItemThemes.STROKE}
+                getTitleField={(itemData) => itemData.title}
             />
         </div>
     )

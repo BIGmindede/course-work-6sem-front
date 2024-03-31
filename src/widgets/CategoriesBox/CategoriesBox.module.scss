@@ -16,7 +16,6 @@
         justify-content: center;
         width: clamp(85px, 20vw, 200px);
         height: auto;
-        overflow: hidden;
 
         .categorywrapper {
             height: 100%;
@@ -24,6 +23,7 @@
             position: relative;
             overflow: hidden;
             border-radius: clamp(5px,1.5em,20px);
+            box-shadow: 0 0 5px 1px var(--shadow);
 
             img {
                 width: 100%;
