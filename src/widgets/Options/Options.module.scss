@@ -1,6 +1,42 @@
 .options {
     position: fixed;
     bottom: 10px;
-    right: 20px;
+    right: 10px;
     z-index: 1;
+    border-radius: 50px;
+    transition: all .25s ease-in-out;
+
+    .optionswrapper {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 5px;
+        position: absolute;
+        bottom: calc(100% + 5px);
+        visibility: visible;
+        opacity: 1;
+        transition: all .25s ease-in-out;
+        z-index: -1;
+    
+        > * {
+            position: relative;
+        }
+    }
+
+    .arrowdownicon {
+        transition: rotate .25s ease-in-out;
+    }
+}
+
+.collapsed {
+    height: clamp(35px, 5vw, 50px);
+
+    .optionswrapper {
+        visibility: hidden;
+        bottom: 0;
+        opacity: 0;
+    }
+    
+    .arrowdownicon {
+        rotate: 180deg;
+    }
 }
