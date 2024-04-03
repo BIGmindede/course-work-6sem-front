@@ -1,10 +1,10 @@
 .form {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    gap: clamp(10px, 2vw, 20px);
-    width: fit-content;
+    justify-content: center;
+    gap: clamp(15px, 2vw, 20px);
+    width: 100%;
     max-width: 680px;
     color: var(--main-txt);
 }

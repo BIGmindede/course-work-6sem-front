@@ -1,7 +1,5 @@
 .closer {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    justify-self: flex-end;
     color: var(--main-txt);
     width: 30px;
     height: 30px;

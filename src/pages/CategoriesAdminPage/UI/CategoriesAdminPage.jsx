@@ -50,11 +50,21 @@ export default () => {
     return (
         <div>
             {modalActiveItem &&   
-                <Modal closer={() => setModalActiveItem(null)}>
+                <Modal 
+                    closer={() => setModalActiveItem(null)}
+                    header={"Изменить категорию"}
+                >
                     <Form
                         fields={[
-                            { type: 'text', placeholder: 'Изменить название'},
-                            { type: 'file', placeholder: 'Картинка'}
+                            { 
+                                type: 'text',
+                                placeholder: 'Изменить название',
+                                upperLabel: 'Изменить название'
+                            },
+                            {
+                                type: 'file',
+                                placeholder: 'Картинка'
+                            }
                         ]}
                         action={(title, picture) => {
                             dispatch(updateCategory(modalActiveItem, title, picture))
@@ -67,8 +77,15 @@ export default () => {
             <EntityCreator
                 title={"Добавить категорию"}
                 fields={[
-                    { type: 'text', placeholder: 'Название категории'},
-                    { type: 'file', placeholder: 'Картинка'}
+                    { 
+                        type: 'text',
+                        placeholder: 'Название категории',
+                        upperLabel: 'Название категории'
+                    },
+                    { 
+                        type: 'file',
+                        placeholder: 'Картинка'
+                    }
                 ]}
                 action={(title, picture) => dispatch(createCategory(title, picture, adminId, null))}
                 buttonText={'Создать'}

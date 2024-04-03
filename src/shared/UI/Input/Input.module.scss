@@ -1,5 +1,37 @@
+.inputwrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+
+    > *:disabled {
+        color: var(--pale-txt);
+    }
+}
+
+.textareawrapper {
+    position: relative;
+    width: clamp(200px, 100%, 640px);
+    display: flex;
+    justify-content: center;
+
+    > *:disabled {
+        color: var(--pale-txt);
+    }
+}
+
+.upperlabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    scale: 0.9;
+    transition: all 0.25s ease-in-out;
+}
+
 .input {
-    width: clamp(165px, 20vw,200px);
+    width: 200px;
     height: clamp(30px, 4vw, 40px);
     border-radius: 10px;
     padding: 0 clamp(5px, 1vw, 10px);
@@ -9,7 +41,7 @@
 }
 
 .textarea {
-    width: clamp(200px, 100%, 640px);
+    width: 100%;
     min-height: 150px;
     border-radius: 10px;
     padding: clamp(5px, 1vw, 10px);
@@ -20,7 +52,7 @@
 }
 
 .select {
-    width: clamp(165px, 20vw,200px);
+    width: 200px;
     height: clamp(30px, 4vw, 40px);
     border-radius: 10px;
     color: var(--input-txt);
@@ -106,7 +138,7 @@
 }
 
 .fileinputlabel {
-    width: clamp(165px, 20vw,200px);
+    width: 200px;
     height: clamp(30px, 4vw, 40px);
     cursor: pointer;
     display: flex;

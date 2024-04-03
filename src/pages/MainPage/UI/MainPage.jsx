@@ -58,16 +58,32 @@ export default () => {
             <EntityCreator 
                 title={'Написать отзыв'}
                 fields={[
-                    { type: 'text', placeholder: 'Заголовок отзыва'},
-                    { type: 'select', placeholder: [
-                        'Выберите категорию',
-                        ...categories.map(category => category.title)
-                    ]},
-                    { type: 'file', placeholder: 'Картинка'},
-                    { type: 'textarea', placeholder: 'Текст отзыва'}
+                    { 
+                        type: 'text',
+                        placeholder: 'Заголовок отзыва',
+                        upperLabel: 'Заголовок отзыва'
+                    },
+                    { 
+                        type: 'select',
+                        placeholder: [
+                            'Выберите категорию',
+                            ...categories.map(category => category.title)
+                        ],
+                        upperLabel: "Выберите категорию"
+                    },
+                    { 
+                        type: 'file',
+                        placeholder: 'Картинка'
+                    },
+                    {
+                        type: 'textarea',
+                        placeholder: 'Текст отзыва',
+                        upperLabel: 'Текст отзыва'
+                    }
                 ]}
                 action={(title, category, picture, content) =>
-                    dispatch(createReview(title, content, userId, category, picture))}
+                    dispatch(createReview(title, content, userId, category, picture))
+                }
                 buttonText={'Опубликовать'}
             />
             <DataContainer

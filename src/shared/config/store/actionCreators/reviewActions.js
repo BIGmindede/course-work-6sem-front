@@ -7,7 +7,6 @@ export const createReview = (title, content, author, category, picture) => async
     dispatch(fetchReviewsLoading())
     try {
         const { data } = await ReviewService.createReview(title, content, author, category, picture) 
-        console.log(data)
         dispatch(createReviewSuccess(data))
     } catch (error) {
         dispatch(fetchReviewsError(error.message))

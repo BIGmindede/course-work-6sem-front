@@ -24,11 +24,22 @@ export const AuthButtons = ({ className, authorized }) => {
                     <Button action={() => setButtonActive('registration')}
                         className={ButtonThemes.BASIC}>Регистрация</Button>
                     {buttonActive === 'login' &&
-                        <DialogWindow closer={() => setButtonActive(null)}>
+                        <DialogWindow 
+                            closer={() => setButtonActive(null)}
+                            header={'Вход'}
+                        >
                         <Form
                             fields={[
-                                {type: 'email', placeholder: 'E-mail'},
-                                {type: 'password', placeholder: 'Пароль'}
+                                {
+                                    type: 'email',
+                                    placeholder: 'E-mail',
+                                    upperLabel: 'E-mail'
+                                },
+                                {
+                                    type: 'password',
+                                    placeholder: 'Пароль',
+                                    upperLabel: 'Пароль'
+                                }
                             ]}
                             action={(email, password) => dispatch(login(email, password))}
                             buttonText='Войти'
@@ -36,11 +47,22 @@ export const AuthButtons = ({ className, authorized }) => {
                         </DialogWindow>
                     }
                     {buttonActive === 'registration' &&
-                        <DialogWindow closer={() => setButtonActive(null)}>
+                        <DialogWindow 
+                            closer={() => setButtonActive(null)}
+                            header={'Регистрация'}
+                        >
                         <Form
                             fields={[
-                                {type: 'email', placeholder: 'E-mail'},
-                                {type: 'password', placeholder: 'Пароль'}
+                                {
+                                    type: 'email',
+                                    placeholder: 'E-mail',
+                                    upperLabel: 'E-mail'
+                                },
+                                {
+                                    type: 'password',
+                                    placeholder: 'Пароль',
+                                    upperLabel: 'Пароль'
+                                }
                             ]}
                             action={(email, password) => dispatch(registration(email, password))}
                             buttonText='Регистрация'
@@ -49,8 +71,10 @@ export const AuthButtons = ({ className, authorized }) => {
                     }
                 </>
                 : <>
-                    <Button action={() => {}} 
-                        className={ButtonThemes.BASIC}>Профиль</Button>
+                    <Button 
+                        action={() => {}}
+                        className={ButtonThemes.BASIC}
+                    >Профиль</Button>
                     <Button 
                         action={() => {
                             dispatch(logout())

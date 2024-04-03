@@ -6,7 +6,12 @@ import RequestsIcon from 'shared/assets/RequestsIcon.svg?react'
 import LightThemeIcon from 'shared/assets/LightThemeIcon.svg?react'
 import DarkThemecIcon from 'shared/assets/DarkThemeIcon.svg?react'
 import cls from './Options.module.scss'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
+import { Modal } from 'widgets/Modal'
+import { useDispatch, useSelector } from 'react-redux'
+import { createRequest } from 'shared/config/store/actionCreators/requestActions'
+import { selectUserData } from 'shared/config/store/reducers/AuthSlice'
+import { Form } from 'entities/Form/Form'
 
 export const Options = ({ className }) => {
 
@@ -14,8 +19,43 @@ export const Options = ({ className }) => {
 
     const [collapsed, setCollapsed] = useState(true)
 
+    const [modalActive, setModalActive] = useState(false)
+
+    const dispatch = useDispatch()
+    
+    const authorization = useSelector(selectUserData)
+    const userId = authorization && authorization.id
+
     return (
         <div className={useClassNames(cls.options, [cls[className], collapsed && cls.collapsed])}>
+            {modalActive &&
+                <Suspense fallback=''>
+                    <Modal 
+                        closer={() => setModalActive(false)}
+                        header={'Оставить заявку'}
+                    >
+                        <Form
+                            fields={[
+                                {
+                                    type: 'text',
+                                    placeholder: 'Заголовок заявки',
+                                    upperLabel: 'Заголовок заявки'
+                                },
+                                {
+                                    type: 'textarea',
+                                    placeholder: 'Содержание заявки',
+                                    upperLabel: 'Содержание заявки'
+                                }
+                            ]}
+                            action={(title, content) => {
+                                setModalActive(false)
+                                return dispatch(createRequest(title, content, userId))
+                            }}
+                            buttonText={'Отправить'}
+                        />
+                    </Modal>
+                </Suspense>
+            }
             <div className={cls.optionswrapper}>
                 <Button action={handleThemeChange} className={ButtonThemes.ROUND}>
                     {theme === Themes.LIGHT
@@ -23,7 +63,7 @@ export const Options = ({ className }) => {
                         : <LightThemeIcon/>
                     }
                 </Button>
-                <Button action={() => {}} className={ButtonThemes.ROUND}>
+                <Button action={() => setModalActive(true)} className={ButtonThemes.ROUND}>
                     <RequestsIcon/>
                 </Button>
             </div>

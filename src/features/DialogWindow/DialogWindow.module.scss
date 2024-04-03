@@ -2,13 +2,25 @@
     position: absolute;
     top: calc(100% + clamp(10px, 1vw, 20px));
     width: 100%;
-    padding: 40px clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px);
+    padding: 80px clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px);
     background-color: var(--sec-bg);
     display: flex;
     border-radius: clamp(7px, 1vw, 15px);
     transition: all 0.25s ease-in-out;
     animation: appear 0.15s ease-in-out;
     box-shadow: 0 0 5px 1px var(--shadow);
+
+    .cap {
+        position: absolute;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--transparent-bg);
+    }
 }
 
 @keyframes appear {

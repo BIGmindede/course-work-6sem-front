@@ -7,7 +7,7 @@ import { Input } from 'shared/UI/Input/Input'
 
 export const Form = ({ className, fields, action, buttonText }) => {
 
-    const initialState = {...fields.map(() => '')}
+    const initialState = {...fields.map((field) => field.preset ?? '')}
 
     const [inputsValues, setInputsValues] = useState(initialState)
 
@@ -23,9 +23,13 @@ export const Form = ({ className, fields, action, buttonText }) => {
             {
                 fields.map((field, index) =>
                     <Input
-                        inputValue={inputsValues[index]}
+                        inputValue={field.preset ?? inputsValues[index]}
                         setInputValue={(value) => setInputsValues({...inputsValues, [index]: value})}
-                        key={index} type={field.type} placeholder={field.placeholder}
+                        key={index}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        disabled={field.disabled}
+                        upperLabel={field.upperLabel}
                     />
                 )
             }

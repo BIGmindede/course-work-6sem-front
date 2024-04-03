@@ -36,7 +36,7 @@ export default () => {
         "ID пользователя": {data: fields.id},
         "E-mail": {data: fields.email},
         "Имя пользователя": {data: fields.nickname ?? "Не установлено"},
-        "Статус активации": {data: fields.isActivated ? "Активирован" : "Не активирован"},
+        "Статус активации": {data: fields.isActivated ? "Активирован" : "Заблокирован"},
         "Роль": {data: fields.role}
     })
 
