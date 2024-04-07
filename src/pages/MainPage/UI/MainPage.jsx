@@ -26,21 +26,6 @@ export default () => {
     const authorization = useSelector(selectUserData)
     const userId = authorization && authorization.id
 
-    const buttons = [
-        {
-            title: 'Кнопка1',
-            action: (e) => {
-                e.preventDefault()
-            }
-        },
-        {
-            title: 'Кнопка2',
-            action: (e) => {
-                e.preventDefault()
-            }
-        }
-    ]
-
     const dataTransformer = (fields) => ({
         "Автор": {
             elemClass: listItemElementsClasses.AUTHOR,
@@ -87,7 +72,6 @@ export default () => {
                 buttonText={'Опубликовать'}
             />
             <DataContainer
-                buttons={buttons}
                 data={reviews}
                 dataTransformer={dataTransformer}
                 listTheme={listItemThemes.SQUARE}

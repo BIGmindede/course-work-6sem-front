@@ -33,6 +33,16 @@ export const getAllReviews = () => async (dispatch) => {
     }
 }
 
+export const getUserReviews = (userId) => async (dispatch) => {
+    dispatch(fetchReviewsLoading())
+    try {
+        const { data } = await ReviewService.getUserReviews(userId)
+        dispatch(fetchReviewsSuccess(data))
+    } catch (error) {
+        dispatch(fetchReviewsError(error.message))
+    }
+}
+
 export const removeReview = (id) => async (dispatch) => {
     dispatch(fetchReviewsLoading())
     try {

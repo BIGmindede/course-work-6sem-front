@@ -2,7 +2,6 @@ import UploadFileIcon from 'shared/assets/UploadFileIcon.svg?react'
 import cls from './Input.module.scss'
 import { truncate } from 'shared/lib/truncate'
 import { divideFileName } from 'shared/lib/divideFileName'
-import { useEffect } from 'react'
 
 export const Input = ({
     type,
@@ -10,7 +9,7 @@ export const Input = ({
     inputValue,
     setInputValue,
     upperLabel,
-    disabled,
+    disabled
 }) => {
 
     if (type === 'file') return (
@@ -91,6 +90,7 @@ export const Input = ({
                 onChange={(e) => setInputValue(e.target.value)}
                 value={inputValue}
                 disabled={disabled}
+                autoComplete='on'
             />
         </div>
     )

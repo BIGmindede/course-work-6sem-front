@@ -46,9 +46,11 @@ export const ListItem = ({
             {!children &&
                 <>
                     <div className={cls.contentwrapper}>
-                        <h3 className={cls[listItemElementsClasses.TITLE]}>{truncate(getTitleField(itemData), 38)}</h3>
+                        <h3 className={cls[listItemElementsClasses.TITLE]}>{truncate(getTitleField(itemData), 35)}</h3>
                         {Object.keys(content).map(key =>
-                            <div className={cls[content[key].elemClass]} key={key}>{(redundant && `${key}: `)}{content[key].data}</div>
+                            <div className={cls[content[key].elemClass]} key={key}>
+                                {(redundant && `${key}: `)}{truncate(content[key].data, 64)}
+                            </div>
                         )}
                     </div>
                 </>

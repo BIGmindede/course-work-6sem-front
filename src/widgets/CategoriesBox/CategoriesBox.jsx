@@ -5,6 +5,7 @@ import { selectCategories } from 'shared/config/store/reducers/CategorySlice'
 import { getAllCategories } from 'shared/config/store/actionCreators/categoryActions'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { truncate } from 'shared/lib/truncate'
 
 export const CategoriesBox = ({ className }) => {
 
@@ -24,7 +25,7 @@ export const CategoriesBox = ({ className }) => {
                         <div className={cls.imagewrapper}>
                             <img src={`http://localhost:5000/${category.pictureName}`} alt="" />
                         </div>
-                        <div className={cls.categorytitle}>{category.title}</div>
+                        <div className={cls.categorytitle}>{truncate(category.title, 23)}</div>
                     </div>
                 </Link>
             )}

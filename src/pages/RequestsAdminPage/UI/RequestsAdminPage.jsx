@@ -8,7 +8,7 @@ import { selectRequests } from "shared/config/store/reducers/RequestSlice"
 import { transformDate } from "shared/lib/transformDate"
 import { truncate } from "shared/lib/truncate"
 import { DataContainer } from "widgets/DataContainer/DataContainer"
-import Modal from "widgets/Modal/UI/Modal"
+import { Modal } from "widgets/Modal"
 
 export default () => {
 
@@ -59,14 +59,13 @@ export default () => {
 
     return (
         <div>
-            {!!modalValues &&
+            {modalValues &&
                 <Modal 
                     closer={() => {setModalValues(null)}}
-                    header={'Обработка заявки'}
+                    header={`Обработка заявки "${modalValues.title}"`}
                 >
                     <div>
-                        <h3>Текст заявки</h3>
-                        <p>Автор: {modalValues.author.nickname ?? modalValues.author.email}</p>
+                        <p><strong>Автор: </strong>{modalValues.author.nickname ?? modalValues.author.email}</p>
                         <p>{modalValues.content}</p>
                     </div>
                     <hr />

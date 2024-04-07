@@ -40,6 +40,26 @@ export const checkAuthority = () => async (dispatch) => {
     }
 }
 
+export const getUserData = (id) => async (dispatch) => {
+    dispatch(authLoading())
+    try {
+        const { data } = await AuthService.getUserData(id)
+        dispatch(authSuccess(data))
+    } catch (error) {
+        dispatch(authError(error.message))
+    }
+}
+
+export const updateUserData = (id, email, nickname, password) => async (dispatch) => {
+    dispatch(authLoading())
+    try {
+        const { data } = await AuthService.updateUserData(id, email, nickname, password)
+        dispatch(authSuccess(data))
+    } catch (error) {
+        dispatch(authSuccess(null))
+    }
+}
+
 export const logout = () => async (dispatch) => {
     dispatch(authLoading())
     try {

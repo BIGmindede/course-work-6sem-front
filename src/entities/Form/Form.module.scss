@@ -7,4 +7,12 @@
     width: 100%;
     max-width: 680px;
     color: var(--main-txt);
+
+    > * {
+        flex-grow: 1;
+    }
+
+    > button {
+        width: 100%;
+    }
 }

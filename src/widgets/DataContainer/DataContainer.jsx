@@ -10,11 +10,15 @@ export const DataContainer = ({
     redundant,
     listTheme,
     itemsOnClick,
-    getTitleField
+    getTitleField,
+    title
 }) => {
 
     return (
         <div className={useClassNames(cls.datacontainer, [cls[className]])}>
+            {title && 
+                <h2>{title}</h2>
+            }
             <List
                 data={data}
                 buttons={buttons}

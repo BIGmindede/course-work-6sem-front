@@ -8,11 +8,13 @@ import { DialogWindow } from 'features/DialogWindow/DialogWindow'
 import { Form } from 'entities/Form/Form'
 import { login, logout, registration } from 'shared/config/store/actionCreators/authActions'
 import { changeCollapsed } from 'shared/config/store/reducers/SidebarSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 export const AuthButtons = ({ className, authorized }) => {
     const [buttonActive, setButtonActive] = useState(null)
 
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     return (
@@ -71,9 +73,9 @@ export const AuthButtons = ({ className, authorized }) => {
                     }
                 </>
                 : <>
-                    <Button 
-                        action={() => {}}
+                    <Button
                         className={ButtonThemes.BASIC}
+                        action={() => {navigate('/profile')}}
                     >Профиль</Button>
                     <Button 
                         action={() => {

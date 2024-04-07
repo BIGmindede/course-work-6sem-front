@@ -40,7 +40,7 @@ export default () => {
         "ID отзыва": {data: fields.id},
         "Заголовок": {data: fields.title},
         "ID автора": {data: fields.author.id},
-        "Содержание": {data: truncate(fields.content, 23)},
+        "Содержание": {data: fields.content},
         "Надежость": {data: fields.reliability},
         "Дата загрузки": {data: transformDate(new Date(fields.date))},
         "Прикрепленная картинка": {data: fields.pictureName}

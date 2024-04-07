@@ -18,12 +18,14 @@
         align-items: center;
         width: clamp(300px, 60%, 500px);
         height: fit-content;
+        max-height: 100vh;
         background-color: var(--sec-bg);
         border-radius: clamp(10px, 1vw, 20px);
         padding: 80px clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px);
         gap: 20px;
         box-shadow: 0 0 5px 1px var(--shadow);
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
 
         > hr {
             height: 0;

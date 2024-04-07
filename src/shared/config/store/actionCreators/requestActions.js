@@ -33,10 +33,20 @@ export const getAllRequests = () => async (dispatch) => {
     }
 }
 
-export const removeReview = (id) => async (dispatch) => {
+export const getUserRequests = (userId) => async (dispatch) => {
     dispatch(fetchRequestsLoading())
     try {
-        await ReviewService.removeReview(id)
+        const { data } = await RequestService.getUserRequests(userId)
+        dispatch(fetchRequestsSuccess(data))
+    } catch (error) {
+        dispatch(fetchRequestsError(error.message))
+    }
+}
+
+export const removeRequest = (id) => async (dispatch) => {
+    dispatch(fetchRequestsLoading())
+    try {
+        await RequestService.removeRequest(id)
         dispatch(removeRequestSuccess(id))
     } catch (error) {
         dispatch(fetchRequestsError(error.message))

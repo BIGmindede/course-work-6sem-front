@@ -15,6 +15,10 @@ export default class ReviewService {
         return api.get('/review')
     }
 
+    static async getUserReviews(userId) {
+        return api.get(`/review/by_user/${userId}`)
+    }
+
     // Вероятно не нужно, если окажется нужно - верну
     // static async getOne(id) {
     //     return api.get(`/review/${id}`)
