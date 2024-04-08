@@ -72,7 +72,7 @@ export const Input = ({
                     {placeholder.map(option => 
                         <li key={option} onClick={(e) => {
                             setInputValue(e.target.innerText)
-                        }}><label htmlFor={cls.checkbox}>{option}</label></li>
+                        }}><label htmlFor={cls.checkbox}>{truncate(option,20)}</label></li>
                     )}
                 </ul>
             </div>

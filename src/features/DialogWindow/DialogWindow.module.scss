@@ -9,6 +9,7 @@
     transition: all 0.25s ease-in-out;
     animation: appear 0.15s ease-in-out;
     box-shadow: 0 0 5px 1px var(--shadow);
+    overflow-x: hidden;
 
     .cap {
         position: absolute;
