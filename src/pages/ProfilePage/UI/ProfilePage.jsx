@@ -110,7 +110,7 @@ export default () => {
                 action={(nickname, email, password) => {
                     dispatch(updateUserData(userData.id, email, nickname, password))
                 }}
-                buttonText={'Сохарнить изменения'}
+                buttonText={'Сохранить изменения'}
             />
             <DataContainer
                 title={'Мои отзывы'}
@@ -118,6 +118,7 @@ export default () => {
                 dataTransformer={userReviewsDataTransformer}
                 getTitleField={(itemData) => itemData.title}
                 listTheme={listItemThemes.SQUARE}
+                collapsable
             />
             <DataContainer
                 title={'Мои заявки'}
@@ -127,6 +128,7 @@ export default () => {
                 listTheme={listItemThemes.STROKE}
                 buttons={userRequestButtons}
                 redundant
+                collapsable
             />
         </div>
     )

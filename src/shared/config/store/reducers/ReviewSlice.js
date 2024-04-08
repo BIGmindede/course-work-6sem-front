@@ -46,5 +46,6 @@ export const {
 } = reviewSlice.actions
 
 export const selectReviews = (state) => state.reviews.reviewsList
+export const selectReviewsLoading = (state) => state.reviews.loading
 
 export default reviewSlice.reducer

@@ -1,18 +1,19 @@
 import { useClassNames } from 'shared/lib/useClassNames'
 import cls from './List.module.scss'
 import { ListItem, listItemThemes } from 'entities/ListItem/ListItem'
+import { forwardRef } from 'react'
 
-export const List = ({
+export const List = forwardRef(({
     className,
     data,
     buttons,
     dataTransformer,
     redundant,
     itemsOnClick,
-    getTitleField
-}) => {
+    getTitleField,
+}, ref) => {
     return (
-        <div className={useClassNames(cls.list, [cls[className ?? listItemThemes.STROKE]])}>
+        <div ref={ref} className={useClassNames(cls.list, [cls[className ?? listItemThemes.STROKE]])}>
             {data.map((listItem) =>
                 <ListItem
                     key={listItem.id}
@@ -26,4 +27,4 @@ export const List = ({
                 />)}
         </div>
     )
-}
+})

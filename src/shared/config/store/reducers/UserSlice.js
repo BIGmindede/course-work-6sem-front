@@ -38,5 +38,6 @@ export const {
 } = userSlice.actions
 
 export const selectUsers = (state) => state.users.usersList
+export const selectUsersLoading = (state) => state.users.loading
 
 export default userSlice.reducer

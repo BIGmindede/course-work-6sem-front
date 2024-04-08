@@ -46,5 +46,6 @@ export const {
 } = categorySlice.actions
 
 export const selectCategories = (state) => state.categories.categoriesList
+export const selectCategoriesLoading = (state) => state.categories.loading
 
 export default categorySlice.reducer
