@@ -5,11 +5,12 @@
     height: 30px;
     border-radius: 100%;
     cursor: pointer;
-    transition: all 0.15s ease-in-out;
+    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
 
     .closericon {        
         width: 30px;
         height: 30px;
+        rotate: 45deg;
     }
 }
 

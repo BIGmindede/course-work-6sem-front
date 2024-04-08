@@ -1,4 +1,4 @@
-import CancelIcon from 'shared/assets/CancelIcon.svg?react'
+import PlusIcon from 'shared/assets/PlusIcon.svg?react'
 import { useClassNames } from 'shared/lib/useClassNames'
 import cls from './Closer.module.scss'
 
@@ -8,7 +8,7 @@ export const Closer = ({ className, action }) => {
             onClick={action}
             className={useClassNames(cls.closer, [cls[className]])}
         >
-            <CancelIcon className={cls.closericon}/>
+            <PlusIcon className={cls.closericon}/>
         </span>
     )
 }
