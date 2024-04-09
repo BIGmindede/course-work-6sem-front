@@ -27,7 +27,7 @@ export const DataContainer = ({
             listRef.current.style.marginTop = `-${height}px`
         }
         else {
-            listRef.current.style.marginTop = '70px'
+            listRef.current.style.marginTop = '50px'
         }
     }
 
