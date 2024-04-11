@@ -1,7 +1,7 @@
 import { listItemElementsClasses, listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { updateUserData } from "shared/config/store/actionCreators/authActions"
+import { checkAuthority, updateUserData } from "shared/config/store/actionCreators/authActions"
 import { getUserRequests, removeRequest } from "shared/config/store/actionCreators/requestActions"
 import { getUserReviews } from "shared/config/store/actionCreators/reviewActions"
 import { selectUserData } from "shared/config/store/reducers/AuthSlice"
@@ -20,11 +20,12 @@ export default () => {
     const userData = useSelector(selectUserData)
     
     useEffect(() => {
+        dispatch(checkAuthority())
         if (userData) {
             dispatch(getUserReviews(userData.id))
             dispatch(getUserRequests(userData.id))
         }
-    }, [userData])
+    }, [])
 
     const userReviewsData = useSelector(selectReviews)
     const userRequestsData = useSelector(selectRequests)

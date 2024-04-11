@@ -2,6 +2,7 @@ import { Form } from "entities/Form/Form"
 import { listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { createCategory } from "shared/config/store/actionCreators/categoryActions"
 import { getAllRequests, updateRequest } from "shared/config/store/actionCreators/requestActions"
 import { selectRequests } from "shared/config/store/reducers/RequestSlice"
@@ -17,6 +18,7 @@ export default () => {
     const [modalValues, setModalValues] = useState(null)
 
     useEffect(() => {
+        dispatch(checkAuthority())
         dispatch(getAllRequests())
     }, [dispatch])
 

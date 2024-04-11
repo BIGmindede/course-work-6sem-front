@@ -1,6 +1,7 @@
 import { listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { banUser, getAllUsers } from "shared/config/store/actionCreators/userActions"
 import { selectUsers } from "shared/config/store/reducers/UserSlice"
 import { DataContainer } from "widgets/DataContainer/DataContainer"
@@ -11,6 +12,7 @@ export default () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        dispatch(checkAuthority())
         dispatch(getAllUsers())
     }, [dispatch])
 

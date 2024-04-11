@@ -2,10 +2,10 @@ import { listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { getAllReviews, removeReview } from "shared/config/store/actionCreators/reviewActions"
 import { selectReviews } from "shared/config/store/reducers/ReviewSlice"
 import { transformDate } from "shared/lib/transformDate"
-import { truncate } from "shared/lib/truncate"
 import { DataContainer } from "widgets/DataContainer/DataContainer"
 
 export default () => {
@@ -14,6 +14,7 @@ export default () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        dispatch(checkAuthority())
         dispatch(getAllReviews())
     }, [dispatch])
 

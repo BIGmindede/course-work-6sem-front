@@ -2,6 +2,7 @@ import { listItemElementsClasses, listItemThemes } from "entities/ListItem/ListI
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { getAllCategories } from "shared/config/store/actionCreators/categoryActions"
 import { createReview, getAllReviews } from "shared/config/store/actionCreators/reviewActions"
 import { selectUserData } from "shared/config/store/reducers/AuthSlice"
@@ -17,6 +18,7 @@ export default () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        dispatch(checkAuthority())
         dispatch(getAllCategories())
         dispatch(getAllReviews())
     },[])
