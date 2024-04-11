@@ -6,7 +6,21 @@ import { RequestsAdminPage } from "pages/RequestsAdminPage";
 import { ReviewPage } from "pages/ReviewPage";
 import { ReviewsAdminPage } from "pages/ReviewsAdminPage";
 import { UsersAdminPage } from "pages/UsersAdminPage";
-import { routesPaths } from "shared/config/router/routerPaths";
+
+export const routesPaths = {
+    main: '/',
+    search: "/search",
+    review: "/review/:link",
+    faq: "/faq",
+    about: "/about",
+    profile: "/profile",
+    notfound: "*",
+    categories: "/categories",
+    reviews: "/reviews",
+    users: "/users",
+    requests: "/requests",
+    complaints: "/complaints"
+}
 
 export const basicRouterConfig = [
     {
@@ -49,4 +63,5 @@ export const adminRouterConfig = [
         element: <ComplaintsAdminPage/>
     }
 ]
+
 

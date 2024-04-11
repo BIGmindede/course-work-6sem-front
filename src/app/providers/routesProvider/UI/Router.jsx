@@ -10,7 +10,6 @@ export const AppRouter = () => {
     const pageCollapsed = !useSelector(selectSidebarCollapsed)
 
     const authorization = useSelector(selectUserData)
-    console.log()
 
     return (
         <Routes>
@@ -20,7 +19,7 @@ export const AppRouter = () => {
                         <Suspense fallback={<div>Загрузка...</div>}>
                             <div className={['pagewrapper', pageCollapsed ? 'collapsed' : 'opened'].join(' ')}>
                                 {authorization !== null &&
-                                    (authorization.role === 'admin') 
+                                    (authorization.role === 'admin')
                                     ? element
                                     : <div>Access Denied</div>
                                 }
