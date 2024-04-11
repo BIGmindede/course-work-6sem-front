@@ -6,6 +6,7 @@ import { getAllCategories } from 'shared/config/store/actionCreators/categoryAct
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { truncate } from 'shared/lib/truncate'
+import { Img } from 'shared/UI/Img/Img'
 
 export const CategoriesBox = ({ className }) => {
 
@@ -23,9 +24,9 @@ export const CategoriesBox = ({ className }) => {
                 <Link key={category.id}>
                     <div className={cls.categorywrapper}>
                         <div className={cls.imagewrapper}>
-                            <img src={`http://localhost:5000/${category.pictureName}`} alt="" />
+                            <Img imageId={category.pictureName}/>
                         </div>
-                        <div className={cls.categorytitle}>{truncate(category.title, 23)}</div>
+                        <div className={cls.categorytitle}>{truncate(category.title, 18)}</div>
                     </div>
                 </Link>
             )}

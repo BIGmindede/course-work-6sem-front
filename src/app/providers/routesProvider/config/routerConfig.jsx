@@ -1,8 +1,9 @@
 import { CategoriesAdminPage } from "pages/CategoriesAdminPage";
 import { ComplaintsAdminPage } from "pages/ComplaintsAdminPage";
 import { MainPage } from "pages/MainPage";
-import ProfilePage from "pages/ProfilePage/UI/ProfilePage";
+import { ProfilePage } from "pages/ProfilePage";
 import { RequestsAdminPage } from "pages/RequestsAdminPage";
+import { ReviewPage } from "pages/ReviewPage";
 import { ReviewsAdminPage } from "pages/ReviewsAdminPage";
 import { UsersAdminPage } from "pages/UsersAdminPage";
 import { routesPaths } from "shared/config/router/routerPaths";
@@ -19,6 +20,10 @@ export const basicRouterConfig = [
     {
         path: routesPaths.profile,
         element: <ProfilePage/>
+    },
+    {
+        path: routesPaths.review,
+        element: <ReviewPage/>
     }
 ]
 

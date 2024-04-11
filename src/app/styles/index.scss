@@ -21,7 +21,7 @@
 
     *:not(h1,h2,h3,h4,h5,h6) {
         font-family: var(--basic-font-family);
-        font-size: clamp(6px, 1.5vw, 16px);
+        font-size: clamp(8px, 1.6vw, 16px);
     }
 
     input,
@@ -30,11 +30,11 @@
     label {
         margin: 0;
         font: inherit;
-        font-size: clamp(12px, 1.6vw, 16px);
+        font-size: clamp(10px, 1.6vw, 16px);
     }
 
     span {
-        font-size: clamp(8px, 1.5vw, 16px);
+        font-size: clamp(8px, 1.6vw, 16px);
     }
 
     button {

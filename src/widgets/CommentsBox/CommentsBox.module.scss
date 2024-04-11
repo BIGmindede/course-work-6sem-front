@@ -1,0 +1,12 @@
+.commentsbox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    background-color: var(--sec-bg);
+    border-radius: clamp(10px, 1vw, 20px);
+    padding: clamp(5px, 1vw, 10px);
+}

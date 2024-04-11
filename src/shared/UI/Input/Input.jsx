@@ -24,13 +24,13 @@ export const Input = ({
                 <span>
                     {inputValue !== '' && inputValue !== undefined
                         ? <>
-                            <h3>{truncate(divideFileName(inputValue.name)[0], 16)}</h3>
+                            <h4>{truncate(divideFileName(inputValue.name)[0], 12)}</h4>
                             <hr />
-                            <h3>{divideFileName(inputValue.name)[1]}</h3>
+                            <h4>{divideFileName(inputValue.name)[1]}</h4>
                         </>
                         : <>
                             <UploadFileIcon className={cls.uploadarrowicon}/>
-                            <h3 className={cls.fileplaceholder}>{placeholder}</h3>
+                            <h4 className={cls.fileplaceholder}>{placeholder}</h4>
                         </>
                     }
                 </span>
