@@ -1,5 +1,8 @@
+import { STATIC_URL } from "shared/config/http"
+
 export const Img = ({ imageId }) => {
+    
     return (
-        <img src={`http://localhost:5000/${imageId}`} alt="" />
+        <img src={`${STATIC_URL}/${imageId}`} alt="" />
     )
 }
