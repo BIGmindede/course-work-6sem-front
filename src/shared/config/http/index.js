@@ -4,8 +4,14 @@ import Cookies from "universal-cookie";
 
 const API_DEV_URL = 'http://localhost'
 const API_PROD_URL = 'https://course-work-6sem-back.onrender.com'
-export const API_URL = `${import.meta.env.DEV ? API_DEV_URL : API_PROD_URL}:5000/api`
-export const STATIC_URL = `${import.meta.env.DEV ? API_DEV_URL : API_PROD_URL}:5000`
+export const API_URL = `${import.meta.env.MODE === "production" 
+    ? API_PROD_URL 
+    : API_DEV_URL
+    }:5000/api`
+export const STATIC_URL = `${import.meta.env.MODE === "production" 
+    ? API_PROD_URL 
+    : API_DEV_URL
+    }:5000`
 
 const cookies = new Cookies()
 
