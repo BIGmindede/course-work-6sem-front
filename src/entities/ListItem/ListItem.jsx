@@ -3,6 +3,7 @@ import cls from './ListItem.module.scss'
 import { Button, ButtonThemes } from 'shared/UI/Button/Button'
 import { transformDate } from 'shared/lib/transformDate'
 import { truncate } from 'shared/lib/truncate'
+import { Img } from 'shared/UI/Img/Img'
 
 export const listItemThemes = {
     SQUARE: 'square',
@@ -40,7 +41,7 @@ export const ListItem = ({
         >
             {itemData.pictureName &&
                 <div className={cls.picture}>
-                    <img src={`http://localhost:5000/${itemData.pictureName}`} alt="" />
+                    <Img imageId={itemData.pictureName} alt="" />
                 </div>
             }
             {!children &&

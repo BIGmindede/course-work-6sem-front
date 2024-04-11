@@ -3,12 +3,12 @@ import cls from './Sidebar.module.scss'
 import { useSelector } from 'react-redux'
 import { selectSidebarCollapsed } from 'shared/config/store/reducers/SidebarSlice'
 import { Link } from 'react-router-dom'
-import { routesPaths } from 'shared/config/router/routerPaths'
 import CategoriesIcon from 'shared/assets/CategoriesIcon.svg?react'
 import ReviewsIcon from 'shared/assets/ReviewsIcon.svg?react'
 import UsersIcon from 'shared/assets/UsersIcon.svg?react'
 import RequestsIcon from 'shared/assets/RequestsIcon.svg?react'
 import ComplaintsIcon from 'shared/assets/ComplaintsIcon.svg?react'
+import { routesPaths } from 'app/providers/routesProvider/config/routerConfig'
 
 
 export default () => {
