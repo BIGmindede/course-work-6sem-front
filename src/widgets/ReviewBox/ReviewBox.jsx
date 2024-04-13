@@ -30,26 +30,17 @@ export const ReviewBox = ({ className }) => {
 
     return (
         <div className={useClassNames(cls.reviewbox, [cls[className]])}>
-            <div className={cls.imagewrapper}>
-                <Img imageId={reviewData?.pictureName}/>
-            </div>
-            <div className={cls.info}>
+            <Img imageId={reviewData?.pictureName}/>
+            <div className={cls.data}>
                 <h2>{reviewData?.title}</h2>
-                <div>
-                    Категория: {reviewData?.category}
+                <div className={cls.info}>
+                    <span>Категория: {reviewData?.category}</span>
+                    <span>Автор: {reviewData?.author?.nickname ?? reviewData?.author?.email}</span>
+                    <span>Рейтинг отзыва: {reviewData?.reliability} ({reviewData?.usersRatedAmount})</span>
+                    <span>Дата публикации: {transformDate(reviewData?.date)}</span>
                 </div>
-                <div>
-                    Автор: {reviewData?.author?.nickname ?? reviewData?.author?.email}
-                </div>
-                <div>
-                    Рейтинг отзыва: {reviewData?.reliability} ({reviewData?.usersRatedAmount})
-                </div>
-                <div>
-                    Дата публикации: {transformDate(reviewData?.date)}
-                </div>
-            </div>
-            <hr />
-            <div className={cls.content}>
+                    
+                <hr />
                 <h3>Содержание</h3>
                 <p>{reviewData?.content}</p>
             </div>

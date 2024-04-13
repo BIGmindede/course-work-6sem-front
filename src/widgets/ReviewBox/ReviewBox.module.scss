@@ -1,37 +1,46 @@
 .reviewbox {
-    display: flex;
-    flex-wrap: wrap;
+    display: inline;
     overflow: hidden;
     width: 100%;
     background-color: var(--sec-bg);
     border-radius: clamp(10px, 1vw, 20px);
-    padding: clamp(10px, 3vw, 30px);
-    gap: clamp(10px, 2vw, 20px);
+    padding: clamp(5px, 1vw, 10px);
 
-    .imagewrapper {
+    img {
+        margin: clamp(10px, 2vw, 20px);
+        margin-bottom: 0;
         border-radius: clamp(10px, 1vw, 20px);
-        max-width: calc((100% - clamp(10px, 2vw, 20px))/3);
-        overflow: hidden;
-        img {
-            width: 100%;
-        }
+        max-width: calc((100% - clamp(0px, 10vw, 100px))/2);
+        height: auto;
+        float: left;
     }
-    
+
     .data {
-        max-width: calc((100% - clamp(10px, 2vw, 20px))/2);
-        flex-grow: 1;
-    }
+        padding: clamp(10px, 2vw, 20px);
 
-    .info {
-        flex-grow: 1;
-    }
+        div {
+            margin: clamp(10px, 2vw, 20px) 0;
+        }
 
-    hr {
-        width: 100%;
-        border: 1px solid var(--pale-txt);
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: clamp(10px, 2vw, 20px);
+        }
+
+        hr {
+            margin: clamp(10px, 2vw, 20px) 0;
+            width: auto;
+            border: 1px solid var(--pale-txt);
+        }
+
+        p {
+            text-align: justify;
+        }
     }
 
     .content {
-        flex-grow: 1;
+
     }
 }
