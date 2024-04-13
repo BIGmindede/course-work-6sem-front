@@ -92,22 +92,23 @@
 
     > ul {
         position: absolute;
-        top: 0;
+        top: clamp(30px, 4vw, 40px);
         width: 100%;
+        max-height: calc(7 * clamp(30px, 4vw, 40px));
         display: none;
         list-style: none;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
         background-color: var(--sec-bg);
         color: var(--main-txt);
         border-radius: 10px;
-        padding-top: clamp(30px, 4vw, 40px);
         z-index: 1;
         transition: all 0.15s ease-in-out;
         box-shadow: 0 0 5px 1px var(--shadow);
 
         li {
             width: 100%;
-            height: clamp(30px, 4vw, 40px);;
+            height: clamp(30px, 4vw, 40px);
             padding: 0 clamp(5px, 1vw, 10px);
             transition: all 0.15s ease-in-out;
 
@@ -115,7 +116,7 @@
                 display: flex;
                 align-items: center;
                 width: 100%;
-                height: clamp(30px, 4vw, 40px);;
+                height: clamp(30px, 4vw, 40px);
                 cursor: pointer;
             }
         }
@@ -129,7 +130,6 @@
     .checkbox:checked + ul {
         display: flex;
         flex-direction: column;
-        --arrow-rotation: 270deg;
     }
 }
 
