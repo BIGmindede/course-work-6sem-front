@@ -35,7 +35,7 @@ export default () => {
         },
         "Надежость": {
             elemClass: listItemElementsClasses.RATE,
-            data: fields.reliability.toFixed(1)
+            data: fields?.reliability?.toFixed(1) ?? "0.0"
         }
     })
 

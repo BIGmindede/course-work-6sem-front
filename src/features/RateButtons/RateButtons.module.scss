@@ -1,0 +1,25 @@
+.ratebuttons {
+
+    .upddel {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(10px, 2vw, 20px);
+    }
+
+    .dialogbound {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .likescontainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        svg {
+            color: red;
+        }
+    }
+}

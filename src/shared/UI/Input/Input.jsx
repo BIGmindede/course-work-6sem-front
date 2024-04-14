@@ -72,7 +72,7 @@ export const Input = ({
                     {placeholder.map(option => 
                         <li key={option} onClick={(e) => {
                             setInputValue(e.target.innerText)
-                        }}><label htmlFor={cls.checkbox} title={option.length > 17 ? option : false}>{truncate(option,17)}</label></li>
+                        }}><label htmlFor={cls.checkbox} title={option.length > 17 ? option : null}>{truncate(option,17)}</label></li>
                     )}
                 </ul>
             </div>

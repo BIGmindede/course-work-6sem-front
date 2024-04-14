@@ -4,6 +4,11 @@
     border-radius: clamp(10px,2vw,20px);
     cursor: pointer;
     color: var(--accent-txt);
+    transition: filter 0.15s ease-in-out;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
 }
 
 .basic {
@@ -13,6 +18,7 @@
 .clear {
     background: none;
     width: fit-content;
+    height: fit-content;
 }
 
 .alfa {
@@ -32,5 +38,21 @@
 
 .warning {
     background-color: red;
+}
+
+.withicon {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--subaccent-el);
+
+    svg {
+        flex-grow: 1;
+    }
+
+    span {
+        flex-grow: 1;
+        text-align: left;
+    }
 }
 

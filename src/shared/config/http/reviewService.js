@@ -23,10 +23,6 @@ export default class ReviewService {
         return api.get(`/review/${id}`)
     }
 
-    static async updateReview(rate) {
-        return api.put('/review', { rate })
-    }
-
     static async removeReview(id) {
         return api.delete(`/review/${id}`)
     }

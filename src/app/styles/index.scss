@@ -40,6 +40,11 @@
     button {
         font-family: var(--accent-font-family);
         font-size: clamp(8px, 1.6vw, 16px);
+        
+        * {
+            font-family: var(--accent-font-family);
+            font-size: clamp(8px, 1.6vw, 16px);
+        }
     }
 
     h1,h2,h3,h4,h5,h6 {

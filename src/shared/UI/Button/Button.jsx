@@ -8,12 +8,18 @@ export const ButtonThemes = {
     ROUND: 'round',
     AGREEMENT: 'agreement',
     WARNING: 'warning',
+    WITH_ICON: 'withicon'
 }
 
-export const Button = ({ className, children, action }) => {
+export const Button = ({ className, children, action, mouseOver, mouseOut }) => {
 
     return (
-        <button onClick={action} className={useClassNames(cls.button, [cls[className]])}>
+        <button 
+            onClick={action}
+            className={useClassNames(cls.button, [cls[className]])}
+            onMouseOver={mouseOver}
+            onMouseOut={mouseOut}
+        >
             {children}
         </button>
     )

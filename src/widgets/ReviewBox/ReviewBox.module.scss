@@ -12,21 +12,35 @@
         border-radius: clamp(10px, 1vw, 20px);
         max-width: calc((100% - clamp(0px, 10vw, 100px))/2);
         height: auto;
-        float: left;
+        float: right;
     }
 
     .data {
         padding: clamp(10px, 2vw, 20px);
 
-        div {
-            margin: clamp(10px, 2vw, 20px) 0;
-        }
-
         .info {
+            margin: clamp(10px, 2vw, 20px) 0;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
             gap: clamp(10px, 2vw, 20px);
+
+            .rate {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: clamp(10px, 2vw, 20px);
+
+                .ratetitle {
+                    display: flex;
+                    align-items: center;
+                    svg {
+                        margin: 0 10px 0 5px;
+                        color: red;
+                        align-self: center;
+                    }
+                }
+            }
         }
 
         hr {
