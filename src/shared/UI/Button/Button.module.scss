@@ -6,41 +6,44 @@
     color: var(--accent-txt);
     transition: filter 0.15s ease-in-out;
 
+    font-family: var(--accent-font-family);
+    font-size: clamp(8px, 1.6vw, 16px);
+
     &:hover {
         filter: brightness(0.8);
     }
 }
 
-.basic {
+.button.basic {
     background-color: var(--subaccent-el);
 }
 
-.clear {
+.button.clear {
     background: none;
     width: fit-content;
     height: fit-content;
 }
 
-.alfa {
+.button.alfa {
     background: none;
 }
 
-.round {
+.button.round {
     width: clamp(35px, 5vw, 50px);
     height: clamp(35px, 5vw, 50px);
     background-color: var(--subaccent-el);
     border-radius: 100%;
 }
 
-.agreement {
+.button.agreement {
     background-color: green;
 }
 
-.warning {
+.button.warning {
     background-color: red;
 }
 
-.withicon {
+.button.withicon {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -54,5 +57,15 @@
         flex-grow: 1;
         text-align: left;
     }
+}
+
+.button.underlined {
+    background: none;
+    width: fit-content;
+    height: fit-content;
+    text-decoration: underline;
+
+    font-family: var(--basic-font-family);
+    font-size: clamp(8px, 1.6vw, 16px);
 }
 

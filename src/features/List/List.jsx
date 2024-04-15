@@ -14,17 +14,21 @@ export const List = forwardRef(({
 }, ref) => {
     return (
         <div ref={ref} className={useClassNames(cls.list, [cls[className ?? listItemThemes.STROKE]])}>
-            {data.map((listItem) =>
-                <ListItem
-                    key={listItem.id}
-                    itemData={listItem}
-                    buttons={buttons}
-                    dataTransformer={dataTransformer}
-                    redundant={redundant}
-                    className={className}
-                    onClick={itemsOnClick}
-                    getTitleField={getTitleField}
-                />)}
+            {data.length > 0
+                ? data.map((listItem) =>
+                    <ListItem
+                        key={listItem.id}
+                        itemData={listItem}
+                        buttons={buttons}
+                        dataTransformer={dataTransformer}
+                        redundant={redundant}
+                        className={className}
+                        onClick={itemsOnClick}
+                        getTitleField={getTitleField}
+                    />
+                )
+                : <div className={cls.emptyplaceholder}>Пусто</div>
+            }
         </div>
     )
 })

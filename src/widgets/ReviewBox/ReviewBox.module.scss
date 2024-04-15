@@ -5,7 +5,8 @@
     background-color: var(--sec-bg);
     border-radius: clamp(10px, 1vw, 20px);
     padding: clamp(5px, 1vw, 10px);
-
+    position: relative;
+    // className={cls.title}
     img {
         margin: clamp(10px, 2vw, 20px);
         border-radius: clamp(10px, 1vw, 20px);
@@ -16,6 +17,13 @@
 
     .data {
         padding: clamp(10px, 2vw, 20px);
+
+        .title {
+            > button {
+                text-align: center;
+                color: var(--pale-txt);
+            }
+        }
 
         .info {
             margin: clamp(10px, 2vw, 20px) 0;
@@ -53,7 +61,6 @@
         }
     }
 
-    .content {
 
-    }
+    
 }

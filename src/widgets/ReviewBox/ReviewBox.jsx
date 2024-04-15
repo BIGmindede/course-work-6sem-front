@@ -9,6 +9,7 @@ import { transformDate } from 'shared/lib/transformDate'
 import { RateButtons } from 'features/RateButtons/RateButtons'
 import { useSelector } from 'react-redux'
 import { selectUserData } from 'shared/config/store/reducers/AuthSlice'
+import { Button, ButtonThemes } from 'shared/UI/Button/Button'
 
 export const ReviewBox = ({ className }) => {
     
@@ -41,7 +42,7 @@ export const ReviewBox = ({ className }) => {
                 ? <>
                     <Img imageId={reviewData?.pictureName}/>
                     <div className={cls.data}>
-                        <h2>{reviewData.title}</h2>
+                        <h2 className={cls.title}>{reviewData.title} <Button className={ButtonThemes.UNDERLINED}>Пожаловаться</Button></h2>
                         <div className={cls.info}>
                             <span>Категория: {reviewData.category}</span>
                             <span>Автор: {reviewData.author.nickname ?? reviewData.author.email}</span>
@@ -64,6 +65,7 @@ export const ReviewBox = ({ className }) => {
                         <h3>Содержание</h3>
                         <p>{reviewData.content}</p>
                     </div>
+                    
                 </>
                 : <></>
             }

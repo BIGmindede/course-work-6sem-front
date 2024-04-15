@@ -8,7 +8,8 @@ export const ButtonThemes = {
     ROUND: 'round',
     AGREEMENT: 'agreement',
     WARNING: 'warning',
-    WITH_ICON: 'withicon'
+    WITH_ICON: 'withicon',
+    UNDERLINED: 'underlined'
 }
 
 export const Button = ({ className, children, action, mouseOver, mouseOut }) => {
