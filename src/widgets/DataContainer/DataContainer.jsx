@@ -1,7 +1,7 @@
 import { useClassNames } from 'shared/lib/useClassNames'
 import cls from './DataContainer.module.scss'
 import { List } from 'features/List/List'
-import PlusIcon from 'shared/assets/PlusIcon.svg?react'
+import PlusIcon from 'shared/assets/icons/PlusIcon.svg?react'
 import { useRef, useState } from 'react'
 
 export const DataContainer = ({

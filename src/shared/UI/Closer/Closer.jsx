@@ -1,4 +1,4 @@
-import PlusIcon from 'shared/assets/PlusIcon.svg?react'
+import PlusIcon from 'shared/assets/icons/PlusIcon.svg?react'
 import { useClassNames } from 'shared/lib/useClassNames'
 import cls from './Closer.module.scss'
 

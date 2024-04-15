@@ -8,7 +8,6 @@
 
     img {
         margin: clamp(10px, 2vw, 20px);
-        margin-bottom: 0;
         border-radius: clamp(10px, 1vw, 20px);
         max-width: calc((100% - clamp(0px, 10vw, 100px))/2);
         height: auto;
