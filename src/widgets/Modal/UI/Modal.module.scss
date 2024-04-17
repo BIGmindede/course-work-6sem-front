@@ -31,6 +31,10 @@
             overflow-x: hidden;
             z-index: 0;
     
+            > button {
+                width: 100%;
+            }
+
             > hr {
                 height: 0;
                 width: clamp(200px, 100%, 400px);

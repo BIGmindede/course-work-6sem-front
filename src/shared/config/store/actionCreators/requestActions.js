@@ -46,8 +46,9 @@ export const getUserRequests = (userId) => async (dispatch) => {
 export const removeRequest = (id) => async (dispatch) => {
     dispatch(fetchRequestsLoading())
     try {
-        await RequestService.removeRequest(id)
-        dispatch(removeRequestSuccess(id))
+        if (await RequestService.removeRequest(id)){
+            dispatch(removeRequestSuccess(id))
+        }
     } catch (error) {
         dispatch(fetchRequestsError(error.message))
     }

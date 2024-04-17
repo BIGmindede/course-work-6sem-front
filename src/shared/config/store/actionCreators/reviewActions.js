@@ -46,8 +46,9 @@ export const getUserReviews = (userId) => async (dispatch) => {
 export const removeReview = (id) => async (dispatch) => {
     dispatch(fetchReviewsLoading())
     try {
-        await ReviewService.removeReview(id)
-        dispatch(removeReviewSuccess(id))
+        if (await ReviewService.removeReview(id)) {
+            dispatch(removeReviewSuccess(id))
+        }
     } catch (error) {
         dispatch(fetchReviewsError(error.message))
     }

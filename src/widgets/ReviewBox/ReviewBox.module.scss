@@ -20,6 +20,7 @@
 
         .title {
             > button {
+                margin-left: clamp(10px, 2vw, 20px);
                 text-align: center;
                 color: var(--pale-txt);
             }

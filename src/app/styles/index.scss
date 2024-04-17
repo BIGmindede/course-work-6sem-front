@@ -2,7 +2,7 @@
 @import "themes/light";
 @import "variables/globals";
 
-* {
+*:not(hr) {
     margin: 0;
     padding: 0;
     border: 0;

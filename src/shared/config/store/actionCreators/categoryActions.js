@@ -36,8 +36,9 @@ export const getAllCategories = () => async (dispatch) => {
 export const removeCategory = (id) => async (dispatch) => {
     dispatch(fetchCategoriesLoading())
     try {
-        await CategoryService.removeCategory(id)
-        dispatch(removeCategorySuccess(id))
+        if (await CategoryService.removeCategory(id)) {
+            dispatch(removeCategorySuccess(id))
+        }
     } catch (error) {
         dispatch(fetchCategoriesError(error.message))
     }

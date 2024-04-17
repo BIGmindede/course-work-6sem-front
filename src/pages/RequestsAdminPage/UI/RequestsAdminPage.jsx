@@ -20,7 +20,7 @@ export default () => {
     useEffect(() => {
         dispatch(checkAuthority())
         dispatch(getAllRequests())
-    }, [dispatch])
+    }, [])
 
     const requests = useSelector(selectRequests)
 
