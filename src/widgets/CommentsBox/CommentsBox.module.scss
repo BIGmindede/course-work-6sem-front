@@ -9,4 +9,5 @@
     background-color: var(--sec-bg);
     border-radius: clamp(10px, 1vw, 20px);
     padding: clamp(5px, 1vw, 10px);
+    border: 1px solid var(--pale-txt);
 }

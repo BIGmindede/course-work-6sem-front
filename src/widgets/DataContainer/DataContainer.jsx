@@ -24,10 +24,10 @@ export const DataContainer = ({
     const handleToggleCollapse = () => {
         if (!collapsed) {
             const height = listRef.current.clientHeight
-            listRef.current.style.marginTop = `-${height}px`
+            listRef.current.style.marginTop = `calc(-${height}px - clamp(35px, 5vw, 50px))`
         }
         else {
-            listRef.current.style.marginTop = '50px'
+            listRef.current.style.marginTop = 'clamp(35px, 5vw, 50px)'
         }
     }
 

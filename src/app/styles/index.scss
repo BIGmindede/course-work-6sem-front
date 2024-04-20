@@ -2,6 +2,10 @@
 @import "themes/light";
 @import "variables/globals";
 
+html {
+    background-color: var(--main-bg);
+}
+
 *:not(hr) {
     margin: 0;
     padding: 0;
@@ -69,7 +73,7 @@
             padding: clamp(5px, 1vw, 10px);
             min-width: 250px;
             width: 100%;
-            max-width: 1500px;
+            max-width: 1495px;
             height: fit-content;
             overflow-x: hidden;
         }
@@ -92,7 +96,7 @@
     
     @media (max-width: 1240px) {
         .pagewrapper {
-            top: calc(2 * var(--header-height-normal));
+            top: calc(2 * var(--header-height-normal) - clamp(25px, 3vw, 30px));
         }
     }
 

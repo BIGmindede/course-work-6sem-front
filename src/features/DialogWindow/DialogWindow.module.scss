@@ -3,13 +3,14 @@
     top: calc(100% + clamp(10px, 1vw, 20px));
     width: 100%;
     min-width: calc(clamp(90px,18vw,180px) + clamp(10px,2vw,20px));
-    padding: clamp(40px, 7vw, 70px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px);
-    background-color: var(--sec-bg);
+    padding: clamp(40px, 8vw, 80px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px);
     display: flex;
     border-radius: clamp(7px, 1vw, 15px);
     transition: all 0.25s ease-in-out;
     animation: appear 0.15s ease-in-out;
     box-shadow: 0 0 5px 1px var(--shadow);
+    background-color: var(--sec-bg);
+    border: 1px solid var(--pale-txt);
     overflow-x: hidden;
 
     .cap {
@@ -22,7 +23,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--transparent-bg);
+        background-color: var(--main-bg);
+        border-bottom: 1px solid var(--pale-txt);
     }
 }
 

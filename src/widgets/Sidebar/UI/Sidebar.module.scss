@@ -1,6 +1,6 @@
 .sidebar {
     position: fixed;
-    top: clamp(40px, 6vw, 60px);
+    top: var(--header-height-normal);
     left: 0;
     width: clamp(100px, 20vw,200px);
     height: calc(100vh - clamp(40px, 6vw, 60px));
@@ -10,7 +10,7 @@
     flex-direction: column;
     gap: clamp(10px, 1vw, 20px);
     padding: clamp(10px, 1vw, 20px);
-    box-shadow: 0 0 5px 1px var(--shadow);
+    border-right: 1px solid var(--pale-txt);
     transition: transform 0.25s ease-in-out;
     z-index: 1;
 
@@ -46,7 +46,7 @@
 
 @media (max-width: 1240px) {
     .sidebar {
-        top: calc(2 * clamp(40px, 6vw, 60px));
-        height: calc(100vh - 2 * clamp(40px, 6vw, 60px));
+        top: calc(2 * var(--header-height-normal) - clamp(25px, 3vw, 30px));
+        height: calc(100vh - 2 * var(--header-height-normal) - clamp(25px, 3vw, 30px));
     }
 }

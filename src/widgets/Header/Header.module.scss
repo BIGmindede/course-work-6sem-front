@@ -1,4 +1,5 @@
 .header {
+    box-sizing: border-box;
     background-color: var(--accent-el);
     position: fixed;
     top: 0;
@@ -7,12 +8,12 @@
     height: var(--header-height-normal);
     display: grid;
     grid-template-columns: 0.2fr 0.7fr calc(2 * clamp(90px,18vw,180px) + clamp(10px, 2vw, 20px));
-    gap: clamp(3px, 1vw, 5px);
+    gap: 0 clamp(3px, 1vw, 5px);
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: clamp(3px, 1.5vw, 5px) clamp(10px, 2vw, 20px);
-    box-shadow: 0 0 5px 1px var(--shadow);
+    padding: 0 clamp(10px, 2vw, 20px);
+    border-bottom: 1px solid var(--pale-txt);
     z-index: 3;
 
     .navshortcut {
@@ -29,7 +30,8 @@
 @media (max-width: 1240px) {
     .header {
         grid-template-columns: 1fr calc(2 * clamp(90px,18vw,180px) + clamp(10px, 2vw, 20px));
-        grid-template-rows: repeat(2, --header-height-normal);
-        height: calc(2 * var(--header-height-normal));
+        grid-template-rows: 1fr 1fr;
+        height: calc(2 * var(--header-height-normal) - clamp(25px, 3vw, 30px));
+        padding: clamp(2.5px, 0.5vw, 5px);
     }
 }

@@ -71,13 +71,14 @@ export const ReviewBox = ({ className }) => {
                     <div className={cls.data}>
                         <h2 className={cls.title}>
                             {reviewData.title}
-                            <Button
-                                className={ButtonThemes.UNDERLINED}
-                                action={() => {setComplaintModalActive(true)}}
-                            >
-                                Пожаловаться
-                            </Button>
+                            
                         </h2>
+                        <Button
+                            className={ButtonThemes.UNDERLINED}
+                            action={() => {setComplaintModalActive(true)}}
+                        >
+                            Пожаловаться
+                        </Button>
                         <div className={cls.info}>
                             <span>Категория: {reviewData.category}</span>
                             <span>Автор: {reviewData.author.nickname ?? reviewData.author.email}</span>

@@ -1,12 +1,13 @@
 .listitem {
     display: flex;
     flex-wrap: wrap;
-    backdrop-filter: brightness(0.9);
+    position: relative;
     height: fit-content;
     border-radius: clamp(10px, 1vw, 20px);
     padding: clamp(5px, 1vw, 10px);
     gap: clamp(5px, 1vw, 10px);
-    box-shadow: 0 0 5px 1px var(--shadow);
+    background-color: var(--sec-bg);
+    border: 1px solid var(--pale-txt);
 
     .picture {
         display: flex;
@@ -38,7 +39,7 @@
 }
 
 .stroke {
-    width: clamp(200px, 100%, 725px);
+    width: clamp(200px, 100%, 720px);
 
     .picture {
         width: clamp(75px, 10vw, 150px);

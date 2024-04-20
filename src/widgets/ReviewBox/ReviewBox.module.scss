@@ -6,11 +6,12 @@
     border-radius: clamp(10px, 1vw, 20px);
     padding: clamp(5px, 1vw, 10px);
     position: relative;
-    // className={cls.title}
+    border: 1px solid var(--pale-txt);
+
     img {
         margin: clamp(10px, 2vw, 20px);
         border-radius: clamp(10px, 1vw, 20px);
-        max-width: calc((100% - clamp(0px, 10vw, 100px))/2);
+        width:calc((100% - clamp(0px, 10vw, 100px))/2);
         height: auto;
         float: right;
     }
@@ -19,11 +20,11 @@
         padding: clamp(10px, 2vw, 20px);
 
         .title {
-            > button {
-                margin-left: clamp(10px, 2vw, 20px);
-                text-align: center;
-                color: var(--pale-txt);
-            }
+            hyphens: auto;
+            width: fit-content;
+            word-break: break-all;
+            margin-right: clamp(10px, 2vw, 20px);
+            display: inline;
         }
 
         .info {

@@ -41,19 +41,20 @@ export const RateButtons = ({ className, userId, reviewData, setReviewData }) =>
             reliability: data.reliability,
             usersRatedAmount: data.usersRatedAmount
         }))
+        setDialogChosen(null)
     }
 
     useEffect(() => {
         const fetchRate = async () => {
             try {
                 const { data } = await ReviewRateService.getRateByUserAndReview(reviewData.id, userId)
-                setUserRate(prevRate => data ?? prevRate)
+                setUserRate(data ?? { value: null })
             } catch (error) {
                 console.log(error)
             }
         }
         fetchRate()
-    }, [reviewData])
+    }, [reviewData, userId])
 
     useEffect(() => {
         const currLikes = []

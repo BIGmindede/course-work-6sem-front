@@ -9,9 +9,11 @@
     padding: clamp(10px, 2vw, 20px);
     color: var(--main-txt);
     width: 100%;
+    border: 1px solid var(--pale-txt);
 
     h2 {
         text-align: center;
+        line-height: clamp(20px, 4vw, 40px);
     }
 
     * {
