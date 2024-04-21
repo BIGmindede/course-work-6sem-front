@@ -6,6 +6,7 @@ import ReviewReducer from "./ReviewSlice";
 import UserReducer from "./UserSlice";
 import RequestReducer from "./RequestSlice";
 import ComplaintReducer from "./ComplaintSlice";
+import ReviewCommentReducer from "./ReviewCommentSlice";
 
 export const rootReducer = combineReducers({
     auth: AuthReducer,
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
     users: UserReducer,
     requests: RequestReducer,
     complaints: ComplaintReducer,
+    reviewComments: ReviewCommentReducer,
     sidebar: SidebarReducer
 })

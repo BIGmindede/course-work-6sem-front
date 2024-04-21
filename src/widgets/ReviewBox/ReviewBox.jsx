@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import { useClassNames } from 'shared/lib/useClassNames'
 import cls from './ReviewBox.module.scss'
-import ReviewService from 'shared/config/http/reviewService'
 import LikeFilledIcon from 'shared/assets/icons/LikeFilledIcon.svg?react'
 import { Img } from 'shared/UI/Img/Img'
 import { transformDate } from 'shared/lib/transformDate'
@@ -14,33 +12,13 @@ import { Modal } from 'widgets/Modal'
 import { Form } from 'entities/Form/Form'
 import { createComplaint } from 'shared/config/store/actionCreators/complaintActions'
 
-export const ReviewBox = ({ className }) => {
+export const ReviewBox = ({ className, reviewData, setReviewData }) => {
     
-    const [reviewData, setReviewData] = useState(null)
-
     const [complaintModalActive, setComplaintModalActive] = useState(false)
-
-    const location = useLocation()
 
     const dispatch = useDispatch()
 
     const userData = useSelector(selectUserData)
-
-    useEffect(() => {
-        const fetchReview = async () => {
-            try {
-                const id = location.pathname
-                    .split('/')
-                    .filter(segment => segment !== '')
-                    .pop()
-                const { data } = await ReviewService.getOne(id)
-                setReviewData(data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchReview()
-    }, [])
 
     return (
         <div className={useClassNames(cls.reviewbox, [cls[className]])}>

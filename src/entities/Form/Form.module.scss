@@ -5,7 +5,6 @@
     justify-content: center;
     gap: clamp(15px, 2vw, 20px);
     width: 100%;
-    max-width: 680px;
     color: var(--main-txt);
 
     > * {
@@ -15,4 +14,8 @@
     > button {
         width: 100%;
     }
+}
+
+.bounded {
+    max-width: 680px;
 }

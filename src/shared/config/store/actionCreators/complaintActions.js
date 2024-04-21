@@ -9,7 +9,6 @@ import {
 } from "../reducers/ComplaintSlice"
 
 export const createComplaint = (author, target, review, content) => async (dispatch) => {
-    console.log("Отправлено")
     dispatch(fetchComplaintsLoading())
     try {
         await ComplaintService.createComplaint(author, target, review, content)

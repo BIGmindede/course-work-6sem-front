@@ -24,7 +24,7 @@ export const Input = ({
                 <span>
                     {inputValue !== '' && inputValue !== undefined
                         ? <>
-                            <h4>{truncate(divideFileName(inputValue.name)[0], 12)}</h4>
+                            <h4>{truncate(divideFileName(inputValue.name)[0], 35)}</h4>
                             <hr />
                             <h4>{divideFileName(inputValue.name)[1]}</h4>
                         </>
@@ -59,7 +59,7 @@ export const Input = ({
             }
             <div className={cls.select}>
                 <label htmlFor={cls.checkbox}>
-                    {truncate(inputValue === placeholder || inputValue === '' ? placeholder[0] : inputValue, 20)}
+                    {truncate(inputValue === placeholder || inputValue === '' ? placeholder[0] : inputValue, 35)}
                 </label>
                 <input 
                     type='checkbox'
@@ -72,7 +72,7 @@ export const Input = ({
                     {placeholder.map(option => 
                         <li key={option} onClick={(e) => {
                             setInputValue(e.target.innerText)
-                        }}><label htmlFor={cls.checkbox} title={option.length > 17 ? option : null}>{truncate(option,17)}</label></li>
+                        }}><label htmlFor={cls.checkbox} title={option.length > 35 ? option : null}>{truncate(option,35)}</label></li>
                     )}
                 </ul>
             </div>

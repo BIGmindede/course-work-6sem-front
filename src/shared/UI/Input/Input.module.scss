@@ -12,7 +12,8 @@
 
 .textareawrapper {
     position: relative;
-    width: clamp(200px, 100%, 640px);
+    // width: clamp(200px, 100%, 640px);
+    width: 100%;
     display: flex;
     justify-content: center;
 

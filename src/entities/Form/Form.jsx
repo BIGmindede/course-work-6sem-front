@@ -5,6 +5,10 @@ import { Button } from 'shared/UI/Button/Button'
 import { ButtonThemes } from 'shared/UI/Button/Button'
 import { Input } from 'shared/UI/Input/Input'
 
+export const FormThemes = {
+    BOUNDED: "bounded"
+}
+
 export const Form = ({ className, fields, action, buttonText }) => {
 
     const initialState = ({...fields.map((field) => field.preset ?? '')})

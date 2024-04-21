@@ -18,7 +18,7 @@ const categorySlice = createSlice({
         },
         createCategorySuccess: (state, action) => {
             state.loading = false
-            state.categoriesList = [...state.categoriesList, action.payload]
+            state.categoriesList = [action.payload, ...state.categoriesList]
         },
         updateCategorySuccess: (state, action) => {
             state.loading = false

@@ -18,7 +18,7 @@ const reviewSlice = createSlice({
         },
         createReviewSuccess: (state, action) => {
             state.loading = false
-            state.reviewsList = [...state.reviewsList, action.payload]
+            state.reviewsList = [action.payload, ...state.reviewsList]
         },
         updateReviewSuccess: (state, action) => {
             state.loading = false
