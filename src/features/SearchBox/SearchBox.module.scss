@@ -1,10 +1,11 @@
 .searchbox {
-    width: clamp(100%, 100%, 700px);
+    width: clamp(200px, 100%, 900px);
     background-color: var(--subaccent-el);
     border-radius: clamp(10px, 2vw, 20px);
     display: flex;
     align-items: center;
     height: fit-content;
+    justify-self: center;
 
     input {
         height: clamp(30px,5vw,50px);

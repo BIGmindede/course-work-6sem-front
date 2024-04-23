@@ -24,7 +24,7 @@ export const Input = ({
                 <span>
                     {inputValue !== '' && inputValue !== undefined
                         ? <>
-                            <h4>{truncate(divideFileName(inputValue.name)[0], 35)}</h4>
+                            <h4>{truncate(divideFileName(inputValue.name)[0], 20)}</h4>
                             <hr />
                             <h4>{divideFileName(inputValue.name)[1]}</h4>
                         </>

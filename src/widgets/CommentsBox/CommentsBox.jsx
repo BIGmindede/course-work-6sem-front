@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom'
 import { Button, ButtonThemes } from 'shared/UI/Button/Button'
 import { transformDate } from 'shared/lib/transformDate'
 
-export const CommentsBox = ({ className, reviewData }) => {
+export const CommentsBox = ({ className }) => {
 
     const dispatch = useDispatch()
     const location = useLocation()

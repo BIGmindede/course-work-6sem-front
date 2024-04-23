@@ -47,6 +47,6 @@
 @media (max-width: 1240px) {
     .sidebar {
         top: calc(2 * var(--header-height-normal) - clamp(25px, 3vw, 30px));
-        height: calc(100vh - 2 * var(--header-height-normal) - clamp(25px, 3vw, 30px));
+        height: calc(100vh - (2 * var(--header-height-normal) - clamp(25px, 3vw, 30px)));
     }
 }

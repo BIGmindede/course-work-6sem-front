@@ -141,7 +141,7 @@
 
 .fileinputlabel {
     width: 100%;
-    min-width: clamp(160px, 35vw, 200px);
+    min-width: clamp(100px, 20vw, 200px);
     height: clamp(30px, 4vw, 40px);
     cursor: pointer;
     display: flex;
@@ -155,6 +155,7 @@
     padding: clamp(5px, 1vw, 10px);
     border-radius: 10px;
     border: 1px solid var(--pale-txt);
+    overflow: hidden;
 
     > span {
         position: relative;
