@@ -122,6 +122,10 @@
         width: 100%;
         gap: clamp(5px, 1vw, 10px);
         align-self: flex-end;
+
+        > * {
+            flex-grow: 1;
+        }
     }
 }
 

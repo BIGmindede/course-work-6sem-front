@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { checkAuthority, updateUserData } from "shared/config/store/actionCreators/authActions"
 import { getUserComplaints, removeComplaint } from "shared/config/store/actionCreators/complaintActions"
 import { getUserRequests, removeRequest } from "shared/config/store/actionCreators/requestActions"
-import { getUserReviews } from "shared/config/store/actionCreators/reviewActions"
+import { getUserReviews, removeReview } from "shared/config/store/actionCreators/reviewActions"
 import { selectUserData } from "shared/config/store/reducers/AuthSlice"
 import { selectComplaints } from "shared/config/store/reducers/ComplaintSlice"
 import { selectRequests } from "shared/config/store/reducers/RequestSlice"
@@ -78,6 +78,16 @@ export default () => {
             data: fields.date
         }
     })
+
+    const userDeleteReviewButons = [
+        {
+            title: "Удалить",
+            action: (itemData, e) => {
+                e.preventDefault()
+                dispatch(removeReview(itemData.id))
+            }
+        }
+    ]
 
     const userRequestButtons = [
         {
@@ -187,6 +197,7 @@ export default () => {
                 dataTransformer={userReviewsDataTransformer}
                 getTitleField={(itemData) => itemData.title}
                 listTheme={listItemThemes.SQUARE}
+                buttons={userDeleteReviewButons}
                 collapsable
             />
             <DataContainer

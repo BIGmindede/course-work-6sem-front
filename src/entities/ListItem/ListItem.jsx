@@ -56,9 +56,9 @@ export const ListItem = ({
                     </div>
                 </>
             }
-            {className !== listItemThemes.SQUARE &&
+            {!!buttons &&
                 <div className={cls.buttons}>
-                    {!!buttons && buttons.map(button => 
+                    {buttons.map(button => 
                         <Button className={ButtonThemes.BASIC} key={button.title} action={(e) => button.action(itemData, e)}>
                             {button.title}
                         </Button>)
