@@ -1,7 +1,9 @@
+import ArrowDownIcon from 'shared/assets/icons/ArrowDownIcon.svg?react'
 import UploadFileIcon from 'shared/assets/icons/UploadFileIcon.svg?react'
 import cls from './Input.module.scss'
 import { truncate } from 'shared/lib/truncate'
 import { divideFileName } from 'shared/lib/divideFileName'
+import { Themes, useTheme } from 'app/providers/themeProvider'
 
 export const Input = ({
     type,
@@ -9,8 +11,10 @@ export const Input = ({
     inputValue,
     setInputValue,
     upperLabel,
-    disabled
+    disabled,
+    range
 }) => {
+    const { theme } = useTheme()
 
     if (type === 'file') return (
         <div className={cls.inputwrapper}>
@@ -58,26 +62,83 @@ export const Input = ({
                 <label className={cls.upperlabel}>{upperLabel}</label>
             }
             <div className={cls.select}>
-                <label htmlFor={cls.checkbox}>
-                    {truncate(inputValue === placeholder || inputValue === '' ? placeholder[0] : inputValue, 35)}
-                </label>
-                <input 
-                    type='checkbox'
-                    hidden 
-                    disabled={disabled}
-                    id={cls.checkbox}
-                    className={cls.checkbox}
-                />
-                <ul>
+                <ul className={cls.selectcollapsed}>
+                    <span
+                        className={cls.toggler}
+                        disabled={disabled}
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            let list = e.target.parentNode
+                            while (list.tagName !== 'UL') {
+                                list = list.parentNode
+                            }
+
+                            if (list.className === cls.selectcollapsed) {
+                                list.className = cls.selectexpanded
+                            }
+                            else {
+                                list.className = cls.selectcollapsed
+                            }
+                        }}
+                    >
+                        {truncate(inputValue === placeholder || inputValue === '' ? placeholder[0] : inputValue, 35)}
+                        <ArrowDownIcon/>
+                    </span>
                     {placeholder.map(option => 
                         <li key={option} onClick={(e) => {
+                            const list = e.target.parentNode
+                            if (list.className === cls.selectcollapsed) {
+                                list.className = cls.selectexpanded
+                            }
+                            else {
+                                list.className = cls.selectcollapsed
+                            }
                             setInputValue(e.target.innerText)
-                        }}><label htmlFor={cls.checkbox} title={option.length > 35 ? option : null}>{truncate(option,35)}</label></li>
+                        }}>
+                            {truncate(option,35)}
+                        </li>
                     )}
                 </ul>
             </div>
         </div>
     )
+    else if (type === 'range') {
+        return (
+            <div className={cls.inputwrapper}>
+                <label
+                    className={cls.upperlabel}
+                >{upperLabel}</label>
+                <input
+                    value={inputValue}
+                    className={cls.range}
+                    type="range"
+                    min={range.min} step={range.step} max={range.max}
+                    onChange={(e) => {
+                        setInputValue(e.target.value)
+                    }}
+                />
+            </div>
+        )
+    }
+    else if (type === 'date') {
+        
+        return (
+            <div className={cls.inputwrapper}>
+                <label
+                    className={cls.upperlabel}
+                >{upperLabel}</label>
+                <input
+                    style={{colorScheme: theme === Themes.DARK ? 'dark' : 'light'}}
+                    value={inputValue}
+                    className={cls.date}
+                    type="date"
+                    onChange={(e) => {
+                        setInputValue(e.target.value)
+                    }}
+                />
+            </div>
+        )
+    }
     else return (
         <div className={cls.inputwrapper}>
             {upperLabel && (inputValue || disabled) &&
