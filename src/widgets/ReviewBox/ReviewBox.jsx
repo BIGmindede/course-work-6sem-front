@@ -45,7 +45,7 @@ export const ReviewBox = ({ className, reviewData, setReviewData }) => {
                             />
                         </Modal>
                     }
-                    <Img imageId={reviewData?.pictureName}/>
+                    <Img className={cls.reviewimg} imageId={reviewData?.pictureName}/>
                     <div className={cls.data}>
                         <h2 className={cls.title}>
                             {reviewData.title}

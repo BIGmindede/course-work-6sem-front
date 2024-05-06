@@ -8,7 +8,7 @@
     position: relative;
     border: 1px solid var(--pale-txt);
 
-    img {
+    .reviewimg {
         margin: clamp(10px, 2vw, 20px);
         border-radius: clamp(10px, 1vw, 20px);
         width:calc((100% - clamp(0px, 10vw, 100px))/2);
