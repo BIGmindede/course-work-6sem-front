@@ -5,6 +5,7 @@ import { ProfilePage } from "pages/ProfilePage";
 import { RequestsAdminPage } from "pages/RequestsAdminPage";
 import { ReviewPage } from "pages/ReviewPage";
 import { ReviewsAdminPage } from "pages/ReviewsAdminPage";
+import { SearchPage } from "pages/SearchPage";
 import { UsersAdminPage } from "pages/UsersAdminPage";
 
 export const routesPaths = {
@@ -12,7 +13,6 @@ export const routesPaths = {
     search: "/search",
     review: "/review/:link",
     faq: "/faq",
-    about: "/about",
     profile: "/profile",
     notfound: "*",
     categories: "/categories",
@@ -38,6 +38,10 @@ export const basicRouterConfig = [
     {
         path: routesPaths.review,
         element: <ReviewPage/>
+    },
+    {
+        path: routesPaths.search,
+        element: <SearchPage/>
     }
 ]
 

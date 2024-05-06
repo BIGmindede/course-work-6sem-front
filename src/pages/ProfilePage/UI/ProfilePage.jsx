@@ -1,6 +1,7 @@
 import { listItemElementsClasses, listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { checkAuthority, updateUserData } from "shared/config/store/actionCreators/authActions"
 import { getUserComplaints, removeComplaint } from "shared/config/store/actionCreators/complaintActions"
 import { getUserRequests, removeRequest } from "shared/config/store/actionCreators/requestActions"
@@ -17,6 +18,7 @@ import { Modal } from "widgets/Modal"
 export default () => {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     
     const [modalValues, setModalValues] = useState(null)
 
@@ -197,6 +199,7 @@ export default () => {
                 dataTransformer={userReviewsDataTransformer}
                 getTitleField={(itemData) => itemData.title}
                 listTheme={listItemThemes.SQUARE}
+                itemsOnClick={(itemData) => navigate(`/review/${itemData.id}`)}
                 buttons={userDeleteReviewButons}
                 collapsable
             />

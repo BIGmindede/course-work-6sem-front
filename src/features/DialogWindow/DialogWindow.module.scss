@@ -8,7 +8,6 @@
     border-radius: clamp(7px, 1vw, 15px);
     transition: all 0.25s ease-in-out;
     animation: appear 0.15s ease-in-out;
-    box-shadow: 0 0 5px 1px var(--shadow);
     background-color: var(--sec-bg);
     border: 1px solid var(--pale-txt);
     overflow-x: hidden;
@@ -26,6 +25,21 @@
         background-color: var(--main-bg);
         border-bottom: 1px solid var(--pale-txt);
     }
+}
+
+.filtersdialogwindow {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: clamp(50px, 8vw, 80px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px) clamp(10px, 2vw, 20px);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: clamp(10px, 2vw, 20px);
+    transition: all 0.25s ease-in-out;
+    animation: appear 0.15s ease-in-out;
+    background-color: var(--sec-bg);
+    border: 1px solid var(--pale-txt);
+    z-index: -1;
 }
 
 @keyframes appear {

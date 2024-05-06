@@ -56,7 +56,8 @@ export const Input = ({
         </div>
         
     )
-    else if (type === 'select') return (
+    else if (type === 'select') {
+        return (
         <div className={cls.inputwrapper}>
             {upperLabel && (inputValue || disabled) &&
                 <label className={cls.upperlabel}>{upperLabel}</label>
@@ -81,27 +82,30 @@ export const Input = ({
                             }
                         }}
                     >
-                        {truncate(inputValue === placeholder || inputValue === '' ? placeholder[0] : inputValue, 35)}
+                        {truncate(inputValue === placeholder[0] || inputValue === '' ? placeholder[0] : inputValue, 35)}
                         <ArrowDownIcon/>
                     </span>
-                    {placeholder.map(option => 
-                        <li key={option} onClick={(e) => {
-                            const list = e.target.parentNode
-                            if (list.className === cls.selectcollapsed) {
-                                list.className = cls.selectexpanded
-                            }
-                            else {
-                                list.className = cls.selectcollapsed
-                            }
-                            setInputValue(e.target.innerText)
-                        }}>
+                    {placeholder.map(option => {
+                        return <li key={option}
+                            onClick={(e) => {
+                                const list = e.target.parentNode
+                                if (list.className === cls.selectcollapsed) {
+                                    list.className = cls.selectexpanded
+                                }
+                                else {
+                                    list.className = cls.selectcollapsed
+                                }
+                                setInputValue(e.target.innerText)
+                            }}
+                        >
                             {truncate(option,35)}
                         </li>
+                    }   
                     )}
                 </ul>
             </div>
         </div>
-    )
+    )}
     else if (type === 'range') {
         return (
             <div className={cls.inputwrapper}>

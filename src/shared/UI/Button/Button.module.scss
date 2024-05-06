@@ -25,6 +25,8 @@
 }
 
 .button.alfa {
+    width: fit-content;
+    padding: 0 clamp(10px, 2vw, 20px);
     background: none;
 }
 

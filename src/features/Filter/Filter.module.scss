@@ -1,0 +1,13 @@
+.filter {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, calc(clamp(200px, 100%, 900px)/2 - 30px));
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    width: 100%;
+
+    > * {
+        flex-grow: 1;
+        width: 100%;
+    }
+}

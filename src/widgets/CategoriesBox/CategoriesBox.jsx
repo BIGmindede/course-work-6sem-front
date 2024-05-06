@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { truncate } from 'shared/lib/truncate'
 import { Img } from 'shared/UI/Img/Img'
+import { getFiltersQuery } from 'shared/lib/getFiltersQuery'
 
 export const CategoriesBox = ({ className }) => {
 
@@ -21,7 +22,7 @@ export const CategoriesBox = ({ className }) => {
     return (
         <div className={useClassNames(cls.categoriesbox, [cls[className]])}>
             {categories.map(category => 
-                <Link key={category.id}>
+                <Link key={category.id} to={`/search?${getFiltersQuery({category: category.title})}`}>
                     <div className={cls.categorywrapper}>
                         <div className={cls.imagewrapper}>
                             <Img imageId={category.pictureName}/>

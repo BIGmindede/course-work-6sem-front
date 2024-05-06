@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { getAllCategories } from "shared/config/store/actionCreators/categoryActions"
-import { createReview, getAllReviews } from "shared/config/store/actionCreators/reviewActions"
+import { createReview, getFilteredReviews } from "shared/config/store/actionCreators/reviewActions"
 import { selectUserData } from "shared/config/store/reducers/AuthSlice"
 import { selectCategories } from "shared/config/store/reducers/CategorySlice"
 import { selectReviews } from "shared/config/store/reducers/ReviewSlice"
@@ -20,7 +20,7 @@ export default () => {
     useEffect(() => {
         dispatch(checkAuthority())
         dispatch(getAllCategories())
-        dispatch(getAllReviews())
+        dispatch(getFilteredReviews({page: 1, portion: 15, orderBy: 'mark_asc'}))
     },[])
 
     const categories = useSelector(selectCategories)
@@ -79,6 +79,7 @@ export default () => {
                 listTheme={listItemThemes.SQUARE}
                 itemsOnClick={(itemData) => navigate(`/review/${itemData.id}`)}
                 getTitleField={(itemData) => itemData.title}
+                title={"Доверьтесь мнению большинства"}
             />
         </div>
     )

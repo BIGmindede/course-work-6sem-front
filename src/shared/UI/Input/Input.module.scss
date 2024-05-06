@@ -114,16 +114,18 @@
     z-index: 1;
     --arrow-rotation: 90deg;
 
-    > .toggled {
-
-    }
-
     .selectcollapsed {
+        border-radius: 10px;
+        margin-top: 0;
         max-height: clamp(30px, 4vw, 40px);
     }
 
     .selectexpanded {
+        border-radius: 0 0 10px 10px;
+        margin-top: calc(clamp(30px, 4vw, 40px) - 2px);
         .toggler {
+            border-radius: 10px 10px 0 0;
+                
             svg {
                 rotate: 180deg;
             }
@@ -133,14 +135,12 @@
     > ul {
         box-sizing: border-box;
         width: 100%;
-        padding-top: calc(clamp(30px, 4vw, 40px) - 2px);
         max-height: calc(7 * clamp(30px, 4vw, 40px));
         list-style: none;
         overflow-x: hidden;
         overflow-y: auto;
         background-color: var(--sec-bg);
         color: var(--main-txt);
-        border-radius: 10px;
         border: 1px solid var(--pale-txt);
         z-index: 2;
         transition: all 0.15s ease-in-out;

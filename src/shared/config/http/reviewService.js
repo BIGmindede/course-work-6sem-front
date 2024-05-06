@@ -1,3 +1,4 @@
+import { getFiltersQuery } from "shared/lib/getFiltersQuery";
 import api from ".";
 
 export default class ReviewService {
@@ -13,6 +14,11 @@ export default class ReviewService {
 
     static async getAllReviews() {
         return api.get('/review')
+    }
+
+    static async getFilteredReviews(filters) {
+        const query = '/review?' + getFiltersQuery(filters)
+        return api.get(query)
     }
 
     static async getUserReviews(userId) {

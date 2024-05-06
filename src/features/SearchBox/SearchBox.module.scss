@@ -1,4 +1,5 @@
 .searchbox {
+    position: relative;
     width: clamp(200px, 100%, 900px);
     background-color: var(--subaccent-el);
     border-radius: clamp(10px, 2vw, 20px);
@@ -7,7 +8,7 @@
     height: fit-content;
     justify-self: center;
 
-    input {
+    > input {
         height: clamp(30px,5vw,50px);
         border-radius: clamp(10px, 2vw, 20px);
         padding: 0 clamp(5px, 1vw, 10px);
@@ -16,9 +17,6 @@
         border: clamp(2px, 1vw, 5px) solid var(--subaccent-el);
         background-color: #fff;
         color: #232526;
-    }
-    input:focus {
-        border: clamp(2px, 1vw, 5px) solid #fff;
     }
 }
 

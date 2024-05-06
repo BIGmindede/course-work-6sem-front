@@ -2,7 +2,7 @@
     position: relative;
     background-color: var(--sec-bg);
     border-radius: clamp(10px, 1vw, 20px);
-    padding: clamp(5px, 1vw, 10px);
+    padding: clamp(45px, 6vw, 60px) clamp(5px, 1vw, 10px) clamp(5px, 1vw, 10px) clamp(5px, 1vw, 10px);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -11,11 +11,6 @@
     overflow: hidden;
     width: 100%;
     border: 1px solid var(--pale-txt);
-}
-
-.collapsable {
-    min-height: clamp(35px, 5vw, 50px);
-    transition: max-height 0.5s ease-in-out;
 
     > .cap {
         position: absolute;
@@ -34,6 +29,11 @@
         background-color: var(--main-bg);
         border-bottom: 1px solid var(--pale-txt);
     }
+}
+
+.collapsable {
+    min-height: clamp(35px, 5vw, 50px);
+    transition: max-height 0.5s ease-in-out;
 
     > .cap {
         cursor: pointer;
@@ -67,7 +67,7 @@
     }
 
     > .cap + * {
-        margin-top: 50px;
+        margin-top: 0px;
         transition: margin-top 0.25s ease-in-out;
     }
 }
