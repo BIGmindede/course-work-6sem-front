@@ -93,6 +93,7 @@ export default () => {
                 buttonText={'Создать'}
             />
             <DataContainer
+                title={"Администрирование категорий"}
                 buttons={buttons}
                 data={categories}
                 dataTransformer={dataTransformer}

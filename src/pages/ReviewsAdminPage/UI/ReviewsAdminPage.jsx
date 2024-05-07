@@ -49,7 +49,8 @@ export default () => {
 
     return (
         <div>
-            <DataContainer 
+            <DataContainer
+                title={"Администрирование отзывов"}
                 buttons={buttons}
                 data={reviews} 
                 dataTransformer={dataTransformer}

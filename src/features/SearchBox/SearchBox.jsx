@@ -16,7 +16,6 @@ import { useNavigate } from 'react-router-dom'
 export const SearchBox = ({ className }) => {
     const [filtersDropped, setFiltersDropped] = useState(false)
     const [filters, setFilters] = useState({
-        minDate: transformDate(new Date(), 'kebab'),
         maxDate: transformDate(new Date(), 'kebab')
     })
 
@@ -51,8 +50,7 @@ export const SearchBox = ({ className }) => {
     const filtersParams = {
         minDate: {
             type: "date",
-            upperLabel: "Дата публикации от: ",
-            initial: transformDate(new Date(), 'kebab')
+            upperLabel: "Дата публикации от: "
         },
         minMark: {
             type: "range",
@@ -63,7 +61,7 @@ export const SearchBox = ({ className }) => {
         maxDate: {
             type: "date",
             upperLabel: "Дата публикации до: ",
-            initial: transformDate(new Date(), 'kebab')
+            initial: filters.maxDate
         },
         category: {
             type: "select",

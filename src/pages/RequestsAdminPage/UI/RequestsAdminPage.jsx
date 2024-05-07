@@ -105,6 +105,7 @@ export default () => {
                 </Modal>
             }
             <DataContainer
+                title={"Администрирование заявок"}
                 buttons={buttons}
                 data={requests}
                 dataTransformer={dataTransformer}

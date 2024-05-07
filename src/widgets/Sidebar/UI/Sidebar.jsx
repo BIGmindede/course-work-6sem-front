@@ -23,25 +23,25 @@ export default () => {
                         <CategoriesIcon/>
                         <span>Категории</span>
                     </li>
-                </Link>
+                </Link><hr />
                 <Link to={routesPaths.reviews}>
                     <li>
                         <ReviewsIcon/>
                         <span>Отзывы</span>
                     </li>
-                </Link>
+                </Link><hr />
                 <Link to={routesPaths.users}>
                     <li>
                         <UsersIcon/>
                         <span>Пользователи</span>
                     </li>
-                </Link>
+                </Link><hr />
                 <Link to={routesPaths.requests}>
                     <li>
                         <RequestsIcon/>
                         <span>Заявки</span>
                     </li>
-                </Link>
+                </Link><hr />
                 <Link to={routesPaths.complaints}>
                     <li>
                         <ComplaintsIcon/>

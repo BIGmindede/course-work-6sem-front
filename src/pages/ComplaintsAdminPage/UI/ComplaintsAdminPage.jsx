@@ -114,6 +114,7 @@ export default () => {
             }
             {!complaints.loading ?
                 <DataContainer
+                    title={"Администрирование жалоб"}
                     buttons={buttons}
                     data={complaints.complaintsList}
                     dataTransformer={dataTransformer}

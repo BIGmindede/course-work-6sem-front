@@ -55,7 +55,9 @@
         hr {
             margin: clamp(10px, 2vw, 20px) 0;
             width: auto;
-            border: 1px solid var(--pale-txt);
+            height: 1px;
+            background-color: var(--pale-txt);
+            border: 0;
         }
 
         p {
