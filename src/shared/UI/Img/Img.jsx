@@ -11,7 +11,7 @@ export const Img = ({ imageId, className }) => {
 
     return (
         <>
-        {notFound
+        {!notFound
             ? <img
                 className={classname}
                 src={image}
