@@ -63,9 +63,11 @@ export const Options = ({ className }) => {
                         : <LightThemeIcon/>
                     }
                 </Button>
-                <Button action={() => setModalActive(true)} className={ButtonThemes.ROUND}>
-                    <RequestsIcon/>
-                </Button>
+                {authorization &&
+                    <Button action={() => setModalActive(true)} className={ButtonThemes.ROUND}>
+                        <RequestsIcon/>
+                    </Button>
+                }
             </div>
             <Button action={() => {setCollapsed(!collapsed)}} className={ButtonThemes.ROUND}>
                 <ArrowDownIcon className={cls.arrowdownicon}/>
