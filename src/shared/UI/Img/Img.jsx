@@ -7,7 +7,7 @@ export const Img = ({ imageId, className }) => {
 
     const [image, setImage] = useState(`${STATIC_URL}/${imageId}`)
     const [notFound, setNotFound] = useState(false)
-    const classname = useClassNames(cls.img, [className, !notFound && cls.stub])
+    const classname = useClassNames(cls.img, [className, notFound && cls.stub])
 
     return (
         <>
