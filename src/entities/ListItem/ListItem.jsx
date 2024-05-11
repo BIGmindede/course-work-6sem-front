@@ -37,13 +37,13 @@ export const ListItem = ({
                     [cls[className ?? listItemThemes.STROKE],
                     itemData.date && !redundant && cls.dated]
             )}
-            onClick={() => onClick && onClick(itemData)}
-        >
-            {itemData.pictureName &&
-                <div className={cls.picture}>
-                    <Img imageId={itemData.pictureName} alt="" />
-                </div>
+            onClick={(e) => 
+                (e.target.tagName !== "BUTTON" && onClick) && onClick(itemData)
             }
+        >
+            <div className={cls.picture}>
+                <Img imageId={itemData.pictureName} />
+            </div>
             {!children &&
                 <>
                     <div className={cls.contentwrapper}>

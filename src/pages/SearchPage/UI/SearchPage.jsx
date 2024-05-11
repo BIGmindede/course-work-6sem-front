@@ -43,7 +43,9 @@ export default () => {
                 data={reviews}
                 dataTransformer={dataTransformer}
                 listTheme={listItemThemes.SQUARE}
-                itemsOnClick={(itemData) => navigate(`/review/${itemData.id}`)}
+                itemsOnClick={(itemData) => {
+                    navigate(`/review/${itemData.id}`)
+                }}
                 getTitleField={(itemData) => itemData.title}
             />
         </div>

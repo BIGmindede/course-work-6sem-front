@@ -199,7 +199,9 @@ export default () => {
                 dataTransformer={userReviewsDataTransformer}
                 getTitleField={(itemData) => itemData.title}
                 listTheme={listItemThemes.SQUARE}
-                itemsOnClick={(itemData) => navigate(`/review/${itemData.id}`)}
+                itemsOnClick={(itemData) => {
+                    navigate(`/review/${itemData.id}`)
+                }}
                 buttons={userDeleteReviewButons}
                 collapsable
             />
