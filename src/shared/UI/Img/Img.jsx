@@ -3,11 +3,11 @@ import { STATIC_URL } from "shared/config/http"
 import PictureNotFoundIcon from 'shared/assets/icons/PictureNotFoundIcon.svg?react'
 import cls from './Img.module.scss'
 import { useClassNames } from "shared/lib/useClassNames"
-export const Img = ({ imageId, className }) => {
+export const Img = ({ imageId }) => {
 
     const [image, setImage] = useState(`${STATIC_URL}/${imageId}`)
     const [notFound, setNotFound] = useState(false)
-    const classname = useClassNames(cls.img, [className, notFound && cls.stub])
+    const classname = useClassNames(cls.img, [notFound && !cls.stub])
 
     return (
         <>
