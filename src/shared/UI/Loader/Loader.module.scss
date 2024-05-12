@@ -1,0 +1,26 @@
+.loaderwrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    position: relative;
+    width: 60px;
+    margin: clamp(50px, 5vw, 150px) 0;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side, var(--pale-txt) 90%,#0000);
+    background:
+        var(--_g) 0%   50%,
+        var(--_g) 50%  50%,
+        var(--_g) 100% 50%;
+    background-size: calc(100%/3) 50%;
+    animation: loading 1s infinite linear;
+}
+@keyframes loading {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}

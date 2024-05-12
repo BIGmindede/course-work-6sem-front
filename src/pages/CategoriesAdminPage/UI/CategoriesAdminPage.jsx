@@ -2,7 +2,6 @@ import { Form } from "entities/Form/Form"
 import { listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { createCategory, getAllCategories, removeCategory, updateCategory } from "shared/config/store/actionCreators/categoryActions"
 import { selectUserData } from "shared/config/store/reducers/AuthSlice"
 import { selectCategories } from "shared/config/store/reducers/CategorySlice"
@@ -17,14 +16,11 @@ export default () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(checkAuthority())
         dispatch(getAllCategories())
     }, [dispatch])
 
     const authorization = useSelector(selectUserData)
     const adminId = authorization && authorization.id
-
-    const categories = useSelector(selectCategories)
 
     const buttons = [
         {
@@ -93,9 +89,9 @@ export default () => {
                 buttonText={'Создать'}
             />
             <DataContainer
+                dataSelector={{ selectorFn: selectCategories, dataKey: "categoriesList" }}
                 title={"Администрирование категорий"}
                 buttons={buttons}
-                data={categories}
                 dataTransformer={dataTransformer}
                 redundant
                 listtheme={listItemThemes.STROKE}

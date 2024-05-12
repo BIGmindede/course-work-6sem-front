@@ -22,10 +22,6 @@ export default () => {
     
     const [modalValues, setModalValues] = useState(null)
 
-    useEffect(() => {
-        dispatch(checkAuthority())
-    }, [])
-
     const userData = useSelector(selectUserData)
 
     useEffect(() => {
@@ -35,10 +31,6 @@ export default () => {
             dispatch(getUserComplaints(userData.id))
         }
     }, [userData])
-
-    const userReviewsData = useSelector(selectReviews)
-    const userRequestsData = useSelector(selectRequests)
-    const userComplaintsData = useSelector(selectComplaints)
     
     const userReviewsDataTransformer = (fields) => ({
         "Автор": {
@@ -195,7 +187,7 @@ export default () => {
             />
             <DataContainer
                 title={'Мои отзывы'}
-                data={userReviewsData}
+                dataSelector={{ selectorFn: selectReviews, dataKey: "reviewsList" }}
                 dataTransformer={userReviewsDataTransformer}
                 getTitleField={(itemData) => itemData.title}
                 listTheme={listItemThemes.SQUARE}
@@ -207,7 +199,7 @@ export default () => {
             />
             <DataContainer
                 title={'Мои заявки'}
-                data={userRequestsData}
+                dataSelector={{ selectorFn: selectRequests, dataKey: "requestsList" }}
                 dataTransformer={userRequestsDataTransformer}
                 getTitleField={(itemData) => itemData.title}
                 listTheme={listItemThemes.STROKE}
@@ -217,7 +209,7 @@ export default () => {
             />
             <DataContainer
                 title={'Мои жалобы'}
-                data={userComplaintsData.complaintsList}
+                dataSelector={{ selectorFn: selectComplaints, dataKey: "complaintsList" }}
                 dataTransformer={userComplaintsDataTransformer}
                 getTitleField={(itemData) => itemData.id}
                 listTheme={listItemThemes.STROKE}

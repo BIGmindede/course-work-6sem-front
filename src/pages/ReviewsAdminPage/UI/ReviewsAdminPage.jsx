@@ -1,8 +1,7 @@
 import { listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { getAllReviews, removeReview } from "shared/config/store/actionCreators/reviewActions"
 import { selectReviews } from "shared/config/store/reducers/ReviewSlice"
 import { transformDate } from "shared/lib/transformDate"
@@ -14,11 +13,8 @@ export default () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        dispatch(checkAuthority())
         dispatch(getAllReviews())
     }, [dispatch])
-
-    const reviews = useSelector(selectReviews)
 
     const buttons = [
         {
@@ -50,9 +46,9 @@ export default () => {
     return (
         <div>
             <DataContainer
+                dataSelector={{ selectorFn: selectReviews, dataKey: "reviewsList" }}
                 title={"Администрирование отзывов"}
                 buttons={buttons}
-                data={reviews} 
                 dataTransformer={dataTransformer}
                 redundant
                 listtheme={listItemThemes.STROKE}

@@ -1,8 +1,7 @@
 import { listItemElementsClasses, listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useNavigate, useSearchParams } from "react-router-dom"
-import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { getFilteredReviews } from "shared/config/store/actionCreators/reviewActions"
 import { selectReviews } from "shared/config/store/reducers/ReviewSlice"
 import { DataContainer } from "widgets/DataContainer/DataContainer"
@@ -15,15 +14,9 @@ export default () => {
     const [searchParams] = useSearchParams()
 
     useEffect(() => {
-        dispatch(checkAuthority())
-    },[])
-
-    useEffect(() => {
         const query = Object.fromEntries([...searchParams])
         dispatch(getFilteredReviews({...query, page: 1, portion: 20}))
     }, [searchParams])
-
-    const reviews = useSelector(selectReviews)
 
     const dataTransformer = (fields) => ({
         "Автор": {
@@ -40,7 +33,7 @@ export default () => {
         <div>
             <DataContainer
                 title={"Результат поиска"}
-                data={reviews}
+                dataSelector={{ selectorFn: selectReviews, dataKey: "reviewsList" }}
                 dataTransformer={dataTransformer}
                 listTheme={listItemThemes.SQUARE}
                 itemsOnClick={(itemData) => {

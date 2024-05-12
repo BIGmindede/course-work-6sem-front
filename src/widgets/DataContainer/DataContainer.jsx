@@ -3,10 +3,12 @@ import cls from './DataContainer.module.scss'
 import { List } from 'features/List/List'
 import PlusIcon from 'shared/assets/icons/PlusIcon.svg?react'
 import { useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Loader } from 'shared/UI/Loader/Loader'
 
 export const DataContainer = ({
+    dataSelector,
     className,
-    data,
     buttons,
     dataTransformer,
     redundant,
@@ -20,6 +22,9 @@ export const DataContainer = ({
     const listRef = useRef()
 
     const [collapsed, setCollapsed] = useState(false)
+
+    const { selectorFn, dataKey } = dataSelector
+    const { [dataKey]: dataList , loading } = useSelector(selectorFn)
 
     const handleToggleCollapse = () => {
         if (!collapsed) {
@@ -44,7 +49,7 @@ export const DataContainer = ({
             )
         }>
             {title &&
-                collapsable 
+                collapsable
                     ? <button
                         className={cls.cap}
                         onClick={collapsable ? () => {
@@ -59,16 +64,19 @@ export const DataContainer = ({
                         <h2>{title}</h2>
                     </div>
             }
-            <List
-                data={data}
-                buttons={buttons}
-                dataTransformer={dataTransformer}
-                redundant={redundant}
-                itemsOnClick={itemsOnClick}
-                className={listTheme}
-                getTitleField={getTitleField}
-                ref={listRef}
-            />
+            {loading 
+                ? <Loader/>
+                : <List
+                    data={dataList}
+                    buttons={buttons}
+                    dataTransformer={dataTransformer}
+                    redundant={redundant}
+                    itemsOnClick={itemsOnClick}
+                    className={listTheme}
+                    getTitleField={getTitleField}
+                    ref={listRef}
+                />
+            }
         </div>
     )
 }

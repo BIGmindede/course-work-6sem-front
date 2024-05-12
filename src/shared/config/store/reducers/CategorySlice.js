@@ -45,7 +45,6 @@ export const {
     fetchCategoriesError
 } = categorySlice.actions
 
-export const selectCategories = (state) => state.categories.categoriesList
-export const selectCategoriesLoading = (state) => state.categories.loading
+export const selectCategories = (state) => state.categories
 
 export default categorySlice.reducer

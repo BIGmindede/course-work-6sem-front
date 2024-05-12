@@ -45,7 +45,6 @@ export const {
     fetchRequestsError
 } = requestSlice.actions
 
-export const selectRequests = (state) => state.requests.requestsList
-export const selectRequestsLoading = (state) => state.requests.loading
+export const selectRequests = (state) => state.requests
 
 export default requestSlice.reducer

@@ -2,7 +2,6 @@ import { listItemElementsClasses, listItemThemes } from "entities/ListItem/ListI
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { getAllCategories } from "shared/config/store/actionCreators/categoryActions"
 import { createReview, getFilteredReviews } from "shared/config/store/actionCreators/reviewActions"
 import { selectUserData } from "shared/config/store/reducers/AuthSlice"
@@ -18,13 +17,11 @@ export default () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        dispatch(checkAuthority())
         dispatch(getAllCategories())
         dispatch(getFilteredReviews({page: 1, portion: 15, orderBy: 'mark_asc'}))
     },[])
 
-    const categories = useSelector(selectCategories)
-    const reviews = useSelector(selectReviews)
+    const { categoriesList } = useSelector(selectCategories)
     const authorization = useSelector(selectUserData)
     const userId = authorization && authorization.id
 
@@ -54,7 +51,7 @@ export default () => {
                         type: 'select',
                         placeholder: [
                             'Выберите категорию',
-                            ...categories.map(category => category.title)
+                            ...categoriesList.map(category => category.title)
                         ],
                         upperLabel: "Выберите категорию"
                     },
@@ -74,7 +71,7 @@ export default () => {
                 buttonText={'Опубликовать'}
             />
             <DataContainer
-                data={reviews}
+                dataSelector={{ selectorFn: selectReviews, dataKey: "reviewsList" }}
                 dataTransformer={dataTransformer}
                 listTheme={listItemThemes.SQUARE}
                 itemsOnClick={(itemData) => navigate(`/review/${itemData.id}`)}

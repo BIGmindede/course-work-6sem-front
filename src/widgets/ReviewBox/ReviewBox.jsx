@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useClassNames } from 'shared/lib/useClassNames'
 import cls from './ReviewBox.module.scss'
 import LikeFilledIcon from 'shared/assets/icons/LikeFilledIcon.svg?react'
@@ -11,13 +11,29 @@ import { Button, ButtonThemes } from 'shared/UI/Button/Button'
 import { Modal } from 'widgets/Modal'
 import { Form } from 'entities/Form/Form'
 import { createComplaint } from 'shared/config/store/actionCreators/complaintActions'
+import ReviewService from 'shared/config/http/reviewService'
+import { Loader } from 'shared/UI/Loader/Loader'
 
-export const ReviewBox = ({ className, reviewData, setReviewData }) => {
+export const ReviewBox = ({ className, reviewId }) => {
     
     const [complaintModalActive, setComplaintModalActive] = useState(false)
 
     const dispatch = useDispatch()
 
+    const [reviewData, setReviewData] = useState(null)
+
+    useEffect(() => {
+        const fetchReview = async () => {
+            try {
+                const { data } = await ReviewService.getOne(reviewId)
+                setReviewData(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchReview()
+    }, [])
+    
     const userData = useSelector(selectUserData)
 
     return (
@@ -79,9 +95,8 @@ export const ReviewBox = ({ className, reviewData, setReviewData }) => {
                         <h3>Содержание</h3>
                         <p>{reviewData.content}</p>
                     </div>
-                    
                 </>
-                : <></>
+                : <Loader/>
             }
         </div>
     )

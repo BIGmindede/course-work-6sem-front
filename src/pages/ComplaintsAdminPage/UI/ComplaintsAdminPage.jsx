@@ -1,11 +1,9 @@
-import { Form } from "entities/Form/Form"
 import { listItemThemes } from "entities/ListItem/ListItem"
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Button, ButtonThemes } from "shared/UI/Button/Button"
 import ReviewService from "shared/config/http/reviewService"
 import UserService from "shared/config/http/userService"
-import { checkAuthority } from "shared/config/store/actionCreators/authActions"
 import { getAllComplaints, updateComplaint } from "shared/config/store/actionCreators/complaintActions"
 import { selectComplaints } from "shared/config/store/reducers/ComplaintSlice"
 import { transformDate } from "shared/lib/transformDate"
@@ -19,11 +17,8 @@ export default () => {
     const [modalValues, setModalValues] = useState(null)
 
     useEffect(() => {
-        dispatch(checkAuthority())
         dispatch(getAllComplaints())
     }, [])
-
-    const complaints = useSelector(selectComplaints)
 
     const buttons = [
         {
@@ -112,18 +107,15 @@ export default () => {
                     >Завершить обработку</Button>
                 </Modal>
             }
-            {!complaints.loading ?
-                <DataContainer
-                    title={"Администрирование жалоб"}
-                    buttons={buttons}
-                    data={complaints.complaintsList}
-                    dataTransformer={dataTransformer}
-                    redundant
-                    listtheme={listItemThemes.STROKE}
-                    getTitleField={(itemData) => itemData.id}
-                />
-                : <></>
-            }
+            <DataContainer
+                title={"Администрирование жалоб"}
+                buttons={buttons}
+                dataSelector={{ selectorFn: selectComplaints, dataKey: "complaintsList" }}
+                dataTransformer={dataTransformer}
+                redundant
+                listtheme={listItemThemes.STROKE}
+                getTitleField={(itemData) => itemData.id}
+            />
         </div>
     )
 }

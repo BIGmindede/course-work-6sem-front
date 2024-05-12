@@ -18,11 +18,8 @@ export default () => {
     const [modalValues, setModalValues] = useState(null)
 
     useEffect(() => {
-        dispatch(checkAuthority())
         dispatch(getAllRequests())
     }, [])
-
-    const requests = useSelector(selectRequests)
 
     const buttons = [
         {
@@ -107,7 +104,7 @@ export default () => {
             <DataContainer
                 title={"Администрирование заявок"}
                 buttons={buttons}
-                data={requests}
+                dataSelector={{ selectorFn: selectRequests, dataKey: "requestsList" }}
                 dataTransformer={dataTransformer}
                 redundant
                 listtheme={listItemThemes.STROKE}

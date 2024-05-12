@@ -37,7 +37,6 @@ export const {
     fetchUsersError
 } = userSlice.actions
 
-export const selectUsers = (state) => state.users.usersList
-export const selectUsersLoading = (state) => state.users.loading
+export const selectUsers = (state) => state.users
 
 export default userSlice.reducer

@@ -17,11 +17,13 @@ export const CategoriesBox = ({ className }) => {
         dispatch(getAllCategories())
     }, [dispatch])
 
-    const categories = useSelector(selectCategories)
+    const { categoriesList, loading } = useSelector(selectCategories)
 
     return (
         <div className={useClassNames(cls.categoriesbox, [cls[className]])}>
-            {categories.map(category => 
+            {
+            }
+            {categoriesList.map(category => 
                 <Link key={category.id} to={`/search?${getFiltersQuery({category: category.title})}`}>
                     <div className={cls.categorywrapper}>
                         <div className={cls.imagewrapper}>

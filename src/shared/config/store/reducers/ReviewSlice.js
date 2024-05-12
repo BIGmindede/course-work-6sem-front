@@ -45,7 +45,6 @@ export const {
     fetchReviewsError
 } = reviewSlice.actions
 
-export const selectReviews = (state) => state.reviews.reviewsList
-export const selectReviewsLoading = (state) => state.reviews.loading
+export const selectReviews = (state) => state.reviews
 
 export default reviewSlice.reducer

@@ -26,7 +26,7 @@ export const SearchBox = ({ className }) => {
         dispatch(getAllCategories())
     },[])
 
-    const categories = useSelector(selectCategories)
+    const { categoriesList, loading } = useSelector(selectCategories)
 
     const processOrderBy = (type) => {
         switch (type) {
@@ -69,7 +69,7 @@ export const SearchBox = ({ className }) => {
             initial: "Выберите категорию",
             placeholder: [
                 "Выберите категорию",
-                ...categories.map(category => category.title)
+                ...categoriesList.map(category => category.title)
             ]
         },
         orderBy: {
