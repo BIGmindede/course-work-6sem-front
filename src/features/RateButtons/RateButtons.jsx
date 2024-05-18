@@ -68,39 +68,37 @@ export const RateButtons = ({ className, userId, reviewData, setReviewData }) =>
     return (
         <div className={useClassNames(cls.ratebuttons, [cls[className]])}>
             {userRate.value
-                ? <div className={cls.upddel}>
-                    <div className={cls.dialogbound}>
-                        <Button
-                            className={ButtonThemes.WITH_ICON}
-                            action={() => {setDialogChosen('upd')}}
+                ? <div className={cls.btnsbound}>
+                    <Button
+                        className={ButtonThemes.WITH_ICON}
+                        action={() => {setDialogChosen('upd')}}
+                    >
+                        <LikeFilledIcon/>
+                        <span>Изменить</span>
+                    </Button>
+                    {dialogChosen === 'upd' &&
+                        <DialogWindow
+                            header="Изменить оценку"
+                            closer={() => {setDialogChosen(null)}}
                         >
-                            <LikeFilledIcon/>
-                            <span>Изменить</span>
-                        </Button>
-                        {dialogChosen === 'upd' &&
-                            <DialogWindow
-                                header="Изменить оценку"
-                                closer={() => {setDialogChosen(null)}}
-                            >
-                                <div className={cls.likescontainer}>
-                                    {likes.map((like,index) =>
-                                        <Button key={index}
-                                            className={ButtonThemes.CLEAR}
-                                            mouseOver={() => handleLikesMouseOver(index)}
-                                            mouseOut={() => handleMouseOut()}
-                                            action={() => handleRateOperation(
-                                                    ReviewRateService.updateUserRate,
-                                                    index + 1,
-                                                    userRate.id
-                                            )}
-                                        >
-                                            {like > 0 ? <LikeFilledIcon/> : <LikeIcon/>}   
-                                        </Button>
-                                    )}
-                                </div>
-                            </DialogWindow>
-                        }
-                    </div>
+                            <div className={cls.likescontainer}>
+                                {likes.map((like,index) =>
+                                    <Button key={index}
+                                        className={ButtonThemes.CLEAR}
+                                        mouseOver={() => handleLikesMouseOver(index)}
+                                        mouseOut={() => handleMouseOut()}
+                                        action={() => handleRateOperation(
+                                                ReviewRateService.updateUserRate,
+                                                index + 1,
+                                                userRate.id
+                                        )}
+                                    >
+                                        {like > 0 ? <LikeFilledIcon/> : <LikeIcon/>}   
+                                    </Button>
+                                )}
+                            </div>
+                        </DialogWindow>
+                    }
                     <Button 
                         className={ButtonThemes.WITH_ICON}
                         action={() => handleRateOperation(
@@ -110,10 +108,9 @@ export const RateButtons = ({ className, userId, reviewData, setReviewData }) =>
                     >
                         <DeclineLikeIcon/>
                         <span>Удалить</span>
-
                     </Button>
                 </div>
-                : <div className={cls.dialogbound}>
+                : <div className={cls.btnsbound}>
                     <Button 
                         className={ButtonThemes.WITH_ICON}
                         action={() => {setDialogChosen('add')}}

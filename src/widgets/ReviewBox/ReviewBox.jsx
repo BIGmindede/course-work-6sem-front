@@ -74,23 +74,32 @@ export const ReviewBox = ({ className, reviewId }) => {
                             Пожаловаться
                         </Button>
                         <div className={cls.info}>
-                            <span>Категория: {reviewData.category}</span>
-                            <span>Автор: {reviewData.author.nickname ?? reviewData.author.email}</span>
-                            <div className={cls.rate}>
-                                <span className={cls.ratetitle}>
-                                    Рейтинг отзыва: {reviewData.reliability}
-                                    <LikeFilledIcon/>
-                                    ({reviewData?.usersRatedAmount})
+                            <span>
+                                <span>Категория: </span>
+                                <span>{reviewData.category}</span>
+                            </span>
+                            <span>
+                                <span>Автор: </span>
+                                <span>{reviewData.author.nickname ?? reviewData.author.email}</span>
+                            </span>
+                            <span className={cls.rate}>
+                                <span>Рейтинг отзыва:</span>
+                                <span>
+                                    <span>{reviewData.reliability}</span>
+                                    <span><LikeFilledIcon/></span>
+                                    <span>({reviewData?.usersRatedAmount})</span>
                                 </span>
-                                {userData && <RateButtons 
-                                    userId={userData.id}
-                                    reviewData={reviewData}
-                                    setReviewData={setReviewData}
-                                />}
-                            </div>
-                            <span>Дата публикации: {transformDate(reviewData.date)}</span>
+                            </span>
+                            {userData && <RateButtons 
+                                userId={userData.id}
+                                reviewData={reviewData}
+                                setReviewData={setReviewData}
+                            />}
+                            <span>
+                                <span>Дата публикации:</span>
+                                <span>{transformDate(reviewData.date)}</span>
+                            </span>
                         </div>
-                            
                         <hr />
                         <h3>Содержание</h3>
                         <p>{reviewData.content}</p>

@@ -34,22 +34,30 @@
             flex-direction: column;
             gap: clamp(10px, 2vw, 20px);
 
-            .rate {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                gap: clamp(10px, 2vw, 20px);
+            > span {
+                width: 100%;
+                flex-grow: 1;
+                display: grid;
+                grid-template-columns: 3fr 2fr;
+            }
 
-                .ratetitle {
+            .rate {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 3fr 2fr;
+                
+                > span {
                     display: flex;
                     align-items: center;
-                    svg {
-                        margin: 0 10px 0 5px;
-                        color: red;
-                        align-self: center;
-                    }
+                }
+
+                svg {
+                    margin: 0 10px 0 5px;
+                    color: red;
+                    align-self: center;
                 }
             }
+            
         }
 
         hr {
@@ -64,7 +72,4 @@
             text-align: justify;
         }
     }
-
-
-    
 }

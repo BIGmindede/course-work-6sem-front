@@ -1,17 +1,15 @@
 .ratebuttons {
-    .upddel {
-        display: flex;
-        flex-wrap: wrap;
+
+    .btnsbound {
+        position: relative;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
         justify-content: flex-start;
-        gap: clamp(10px, 2vw, 20px);
+        > div {
+            width: max-content;
+        }
     }
 
-    .dialogbound {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
     .likescontainer {
         width: 100%;
