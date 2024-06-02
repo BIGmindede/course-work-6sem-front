@@ -72,3 +72,11 @@
     font-size: clamp(8px, 1.6vw, 16px);
 }
 
+.button:disabled {
+    filter: brightness(0.8);
+    &:hover {
+        cursor: not-allowed;
+        filter: brightness(0.8);
+    }
+}
+

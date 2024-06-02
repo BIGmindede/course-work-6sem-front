@@ -59,8 +59,16 @@ export const ListItem = ({
             {!!buttons &&
                 <div className={cls.buttons}>
                     {buttons.map(button => 
-                        <Button className={ButtonThemes.BASIC} key={button.title} action={(e) => button.action(itemData, e)}>
-                            {button.title}
+                        <Button
+                            key={button.title}
+                            className={ButtonThemes.BASIC}
+                            action={(e) => button.action(itemData, e)}
+                            disabled = {button.disabled && button.disabled(itemData)}
+                        >
+                            {typeof button.title === "function"
+                                ? button.title(itemData)
+                                : button.title
+                            }
                         </Button>)
                     }
                 </div>

@@ -52,4 +52,14 @@
         }
     }
 
+    .emptyplaceholder {
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: xx-large;
+        font-family: var(--accent-font-family);
+        color: var(--pale-txt);
+    }
+
 }

@@ -12,7 +12,7 @@ export const ButtonThemes = {
     UNDERLINED: 'underlined'
 }
 
-export const Button = ({ className, children, action, mouseOver, mouseOut }) => {
+export const Button = ({ className, children, action, mouseOver, mouseOut, disabled }) => {
 
     return (
         <button 
@@ -20,6 +20,7 @@ export const Button = ({ className, children, action, mouseOver, mouseOut }) => 
             className={useClassNames(cls.button, [cls[className]])}
             onMouseOver={mouseOver}
             onMouseOut={mouseOut}
+            disabled={disabled}
         >
             {children}
         </button>

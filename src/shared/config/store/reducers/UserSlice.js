@@ -16,11 +16,26 @@ const userSlice = createSlice({
             state.loading = false
             state.usersList = action.payload
         },
+        
+        setUserRoleSuccess: (state, action) => {
+            state.loading = false
+            state.usersList = state.usersList
+                .map(user => user.id === action.payload.id
+                    ? { ...user, role: action.payload.role }
+                    : user)
+        },
+        unbanUserSuccess: (state, action) => {
+            state.loading = false
+            state.usersList = state.usersList
+                .map(user => user.id === action.payload
+                    ? { ...user, isActivated: true }
+                    : user)
+        },
         banUserSuccess: (state, action) => {
             state.loading = false
             state.usersList = state.usersList
-                .map(user => user.id === action.payload.id 
-                    ? action.payload
+                .map(user => user.id === action.payload
+                    ? { ...user, isActivated: false }
                     : user)
         },
         fetchUsersError: (state, action) => {
@@ -33,6 +48,8 @@ const userSlice = createSlice({
 export const {
     fetchUsersLoading,
     fetchUsersSuccess,
+    setUserRoleSuccess,
+    unbanUserSuccess,
     banUserSuccess,
     fetchUsersError
 } = userSlice.actions
